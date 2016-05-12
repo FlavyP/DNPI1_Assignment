@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %></title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -46,13 +46,21 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
+                    <a class="navbar-brand" runat="server" href="~/">CottageWars</a>
                 </div>
+                
+                <!-- So this should be moved into the LoggedInTemplate once it's done.-->
+
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <li><a runat="server" href="~/Default.aspx">Overview</a></li>
+                        <li><a runat="server" href="~/WorldMap.aspx">Worldmap</a></li>
+                        <li><a runat="server" href="~/">Attacks</a></li>
+                        <li><a runat="server" href="~/">Research</a></li>
+                        <li><a runat="server" href="~/">Leaderboards</a></li>
+                        <li><a runat="server" href="~/">Inbox</a></li>
+                        <li><a runat="server" href="~/">Options</a></li>
+                        <li><a runat="server" href="~/#">About</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
@@ -70,6 +78,17 @@
                             </ul>
                         </LoggedInTemplate>
                     </asp:LoginView>
+                </div>
+                
+                <!-- So this should be moved into the LoggedInTemplate once it's done.-->
+                
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>Resource1: Context.User.Progress.GetResource1()|</li>
+                        <li>Resource2..|</li>
+                        <li>Resource3..|</li>
+                        <li>Resource4..</li>
+                    </ul>
                 </div>
             </div>
         </div>
