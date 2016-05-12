@@ -11,7 +11,7 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -38,7 +38,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <nav class="navbar navbar-inverse" role="navigation">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -48,7 +48,7 @@
                     </button>
                     <a class="navbar-brand" runat="server" href="~/">CottageWars</a>
                 </div>
-                
+
                 <!-- So this should be moved into the LoggedInTemplate once it's done.-->
 
                 <div class="navbar-collapse collapse">
@@ -79,20 +79,32 @@
                         </LoggedInTemplate>
                     </asp:LoginView>
                 </div>
-                
+
                 <!-- So this should be moved into the LoggedInTemplate once it's done.-->
-                
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li>Resource1: Context.User.Progress.GetResource1()|</li>
-                        <li>Resource2..|</li>
-                        <li>Resource3..|</li>
-                        <li>Resource4..</li>
-                    </ul>
+
+            </div>
+
+        </nav>
+
+        <div class="container">
+
+            <!-- not the best solution <br /> -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Resource bar</h3>
+                        </div>
+                        <div class="panel-body">
+                            Panel for resources
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="container body-content">
+
+
+
+
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
@@ -100,6 +112,7 @@
                 <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
             </footer>
         </div>
+
     </form>
 </body>
 </html>
