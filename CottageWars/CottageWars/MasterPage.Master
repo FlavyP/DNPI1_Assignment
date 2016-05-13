@@ -2,49 +2,98 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head runat="server">
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>
-        <asp:ContentPlaceHolder ID="title" runat="server"></asp:ContentPlaceHolder>
-    </title>
+    <title>Momo</title>
 
     <!-- Bootstrap -->
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="bootstrap/css/Site.css" rel="stylesheet" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+   
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form runat="server">
+        
+        <nav class="navbar navbar-inverse" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/">CottageWars</a>
+                </div>
 
-        <div>
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="Default.aspx">Brand</a>
+                <!-- So this should be moved into the LoggedInTemplate once it's done.-->
+                <ul class="nav navbar-nav">
+                                <li><a runat="server" href="~/Default.aspx">Overview</a></li>
+                                <li><a runat="server" href="~/WorldMap.aspx">Worldmap</a></li>
+                                <li><a runat="server" href="~/">Attacks</a></li>
+                                <li><a runat="server" href="~/">Research</a></li>
+                                <li><a runat="server" href="~/">Leaderboards</a></li>
+                                <li><a runat="server" href="~/">Inbox</a></li>
+                                <li><a runat="server" href="~/">Options</a></li>
+                                <li><a runat="server" href="~/#">About</a></li>
+                            </ul>
+                <div class="navbar-collapse collapse">
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Register">Register</a></li>
+                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            
+                    
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, !</a></li>
+                                <li>
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" />
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+
+                <!-- So this should be moved into the LoggedInTemplate once it's done.-->
+
+            </div>
+
+        </nav>
+
+        <div class="container">
+            <asp:LoginView runat="server" ViewStateMode="Disabled">
+           <LoggedInTemplate>
+                <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Resource bar</h3>
+                        </div>
+                        <div class="panel-body">
+                            Panel for resources
+                        </div>
                     </div>
                 </div>
-            </nav>
-        </div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        </asp:ContentPlaceHolder>
+            </div>
+            </LoggedInTemplate>
+                </asp:LoginView>
 
 
+
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+
+            </div>
     </form>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
