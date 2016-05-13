@@ -52,16 +52,6 @@
                 <!-- So this should be moved into the LoggedInTemplate once it's done.-->
 
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/Default.aspx">Overview</a></li>
-                        <li><a runat="server" href="~/WorldMap.aspx">Worldmap</a></li>
-                        <li><a runat="server" href="~/">Attacks</a></li>
-                        <li><a runat="server" href="~/">Research</a></li>
-                        <li><a runat="server" href="~/">Leaderboards</a></li>
-                        <li><a runat="server" href="~/">Inbox</a></li>
-                        <li><a runat="server" href="~/">Options</a></li>
-                        <li><a runat="server" href="~/#">About</a></li>
-                    </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
@@ -70,6 +60,17 @@
                             </ul>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
+                            <ul class="nav navbar-nav">
+                                <li><a runat="server" href="~/Default.aspx">Overview</a></li>
+                                <li><a runat="server" href="~/WorldMap.aspx">Worldmap</a></li>
+                                <li><a runat="server" href="~/">Attacks</a></li>
+                                <li><a runat="server" href="~/">Research</a></li>
+                                <li><a runat="server" href="~/">Leaderboards</a></li>
+                                <li><a runat="server" href="~/">Inbox</a></li>
+                                <li><a runat="server" href="~/">Options</a></li>
+                                <li><a runat="server" href="~/#">About</a></li>
+                            </ul>
+                    
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
                                 <li>
@@ -87,9 +88,9 @@
         </nav>
 
         <div class="container">
-
-            <!-- not the best solution <br /> -->
-            <div class="row">
+            <asp:LoginView runat="server" ViewStateMode="Disabled">
+           <LoggedInTemplate>
+                <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-info">
                         <div class="panel-heading">
@@ -101,7 +102,8 @@
                     </div>
                 </div>
             </div>
-
+            </LoggedInTemplate>
+                </asp:LoginView>
 
 
 
@@ -109,7 +111,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - CottageWars</p>
             </footer>
         </div>
 
