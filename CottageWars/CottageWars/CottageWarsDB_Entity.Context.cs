@@ -13,10 +13,10 @@ namespace CottageWars
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class UserDBContextContainer : DbContext
+    public partial class CottageWarsDB_EntityContainer : DbContext
     {
-        public UserDBContextContainer()
-            : base("name=UserDBContextContainer")
+        public CottageWarsDB_EntityContainer()
+            : base("name=CottageWarsDB_EntityContainer")
         {
         }
     
@@ -26,6 +26,5 @@ namespace CottageWars
         }
     
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Progression> Progressions { get; set; }
     }
 }

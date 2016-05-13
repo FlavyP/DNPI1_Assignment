@@ -14,10 +14,8 @@ namespace CottageWars
     
     public partial class User
     {
-        public int Id { get; set; }
+        public short Id { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
-    
-        public virtual Progression Progression { get; set; }
     }
 }

@@ -4,10 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e7660eb7f11346df942d12359e677f4f" Name="Diagram1" >
-        <EntityTypeShape EntityType="UserDBContext.User" Width="1.5" PointX="1.875" PointY="1.875" />
-        <EntityTypeShape EntityType="UserDBContext.Progression" Width="1.5" PointX="4.125" PointY="1.875" />
-        <AssociationConnector Association="UserDBContext.UserProgression" />
+      <Diagram DiagramId="131395271cf444999693562ddd7b9a4a" Name="Diagram1" >
+        <EntityTypeShape EntityType="CottageWarsDB_Entity.User" Width="1.5" PointX="0.5" PointY="1.375" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
