@@ -30,7 +30,7 @@ namespace CottageWars.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("CottageWarsDB", throwIfV1Schema: false)
         {
         }
 
