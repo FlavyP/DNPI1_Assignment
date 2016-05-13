@@ -10,6 +10,7 @@ namespace CottageWars.Account
 {
     public partial class Login : Page
     {
+        private CottageWarsDB_EntityContainer db = new CottageWarsDB_EntityContainer();
         protected void Page_Load(object sender, EventArgs e)
         {
             RegisterHyperLink.NavigateUrl = "Register";
@@ -30,6 +31,8 @@ namespace CottageWars.Account
                 // Validate the user password
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 var signinManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
+
+                
 
                 // This doen't count login failures towards account lockout
                 // To enable password failures to trigger lockout, change to shouldLockout: true
