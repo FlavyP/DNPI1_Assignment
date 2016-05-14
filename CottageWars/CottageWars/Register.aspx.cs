@@ -36,7 +36,7 @@ namespace CottageWars
                 }
                 else
                 {
-                    command = "INSERT INTO Users (Username, Email, Password) VALUES (" + nameText.Text + "," + emailText.Text + "," + passwordText.Text + ")";
+                    command = "INSERT INTO Users (Username, Email, Password) VALUES (" + "'" + nameText.Text + "','" + emailText.Text + "','" + passwordText.Text + "')";
                     cmd = new SqlCommand(command, conn);
                     cmd.ExecuteNonQuery();
                     //write in db
