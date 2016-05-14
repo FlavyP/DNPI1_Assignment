@@ -28,7 +28,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">CottageWars</a>
+                    <a class="navbar-brand" runat="server" href="~/" data-toggle="tooltip" data-placement="top" title="Tooltip on top">CottageWars</a>
                 </div>
 
                 <!-- So this should be moved into the LoggedInTemplate once it's done.-->
@@ -51,6 +51,7 @@
                                 <li><a runat="server" href="~/">Inbox</a></li>
                                 <li><a runat="server" href="~/">Options</a></li>
                                 <li><a runat="server" href="~/#">About</a></li>
+                                <li><button type="button" class="btn btn-primary ole two" data-toggle="tooltip" data-placement="left" data-original-title="this is a top tooltip">Pipo</button></li>
                             </ul>
 
                             <ul class="nav navbar-nav navbar-right">
@@ -80,23 +81,7 @@
                                     <h3 class="panel-title">Resource bar</h3>
                                 </div>
                                 <div class="panel-body">
-                                     <div class="board">
-                                                <div class="hex-row">
-                                                    <div class="hex"><div class="left"></div><div class="middle"></div><div class="right"></div></div>
-                                                    <div class="hex even"><div class="left"></div><div class="middle"></div><div class="right"></div></div>
-                                                    <div class="hex"><div class="left"></div><div class="middle"></div><div class="right"></div></div>
-                                                </div>
-                                                <div class="hex-row">
-                                                    <div class="hex"><div class="left"></div><div class="middle"></div><div class="right"></div></div>
-                                                    <div class="hex even"><div class="left"></div><div class="middle"></div><div class="right"></div></div>
-                                                    <div class="hex"><div class="left"></div><div class="middle"></div><div class="right"></div></div>
-                                                </div>
-                                                <div class="hex-row">
-                                                    <div class="hex"><div class="left"></div><div class="middle"></div><div class="right"></div></div>
-                                                    <div class="hex even"><div class="left"></div><div class="middle"></div><div class="right"></div></div>
-                                                    <div class="hex"><div class="left"></div><div class="middle"></div><div class="right"></div></div>
-                                                </div>
-                                                </div>
+                                     
                                     Panel for resources
                                 </div>
                             </div>
@@ -114,9 +99,29 @@
 
     </form>
     
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+   <script src='//assets.codepen.io/assets/common/stopExecutionOnTimeout.js?t=1'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<script>
+    $(document).ready(function () {
+        //can also be wrapped with:
+        //1. $(function () {...});
+        //2. $(window).load(function () {...});
+        //3. Or your own custom named function block.
+        //It's better to wrap it.
+
+        //Tooltip, activated by hover event
+        $("body").tooltip({
+            selector: "[data-toggle='tooltip']",
+            container: "body"
+        })
+          //Popover, activated by clicking
+          .popover({
+              selector: "[data-toggle='popover']",
+              container: "body",
+              html: true
+          });
+        //They can be chained like the example above (when using the same selector).
+
+    });
+</script>
 </body>
 </html>

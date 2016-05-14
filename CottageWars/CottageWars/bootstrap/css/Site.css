@@ -70,3 +70,7 @@ input[type="select"] {
 .hex.even {
     margin-top: 53px;
 }
+.board{
+    height:400px;
+    border: 1px solid black;
+}
