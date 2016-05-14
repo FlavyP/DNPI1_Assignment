@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.Security;
 
 namespace CottageWars
 {
@@ -23,28 +24,13 @@ namespace CottageWars
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                conn.Open();
-                string command = "SELECT COUNT(*) from Users where Username like '" + nameText.Text + "' AND Password like '" + passwordText.Text + "';";
-                cmd = new SqlCommand(command, conn);
-                int userCount = (int)cmd.ExecuteScalar();
-                if (userCount > 0)
-                {
-                    displayPopUpMessage("Logged in");
-                    //User logs in, redirect to main page or smth
-                }
-                else
-                {
-                    Response.Redirect("Register.aspx");
-                    //display message, redirect to register or smth
-                }
-                conn.Close();
-            }
-            catch (Exception)
-            {
 
-                throw;
+            int authoCode = Authentification();
+            if (authoCode == 1)
+            {
+                
+                Session["Login"] = nameText.Text;
+                FormsAuthentication.RedirectFromLoginPage(nameText.Text, false);
             }
         }
 
@@ -59,5 +45,29 @@ namespace CottageWars
             sb.Append("</script>");
             ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", sb.ToString());
         }
+        public int Authentification()
+        {
+            try
+            {
+                conn.Open();
+                string command = "SELECT COUNT(*) from Users where Username like '" + nameText.Text + "' AND Password like '" + passwordText.Text + "';";
+                cmd = new SqlCommand(command, conn);
+                int userCount = (int)cmd.ExecuteScalar();
+                if (userCount > 0)
+                {
+                    conn.Close();
+                    return 1;
+                }
+               
+                conn.Close();
+                return 0;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
+
 }

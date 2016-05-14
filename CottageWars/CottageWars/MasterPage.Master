@@ -32,33 +32,34 @@
                 </div>
 
                 <!-- So this should be moved into the LoggedInTemplate once it's done.-->
-                <ul class="nav navbar-nav">
-                    <li><a runat="server" href="~/Default.aspx">Overview</a></li>
-                    <li><a runat="server" href="~/WorldMap.aspx">Worldmap</a></li>
-                    <li><a runat="server" href="~/">Attacks</a></li>
-                    <li><a runat="server" href="~/">Research</a></li>
-                    <li><a runat="server" href="~/">Leaderboards</a></li>
-                    <li><a runat="server" href="~/">Inbox</a></li>
-                    <li><a runat="server" href="~/">Options</a></li>
-                    <li><a runat="server" href="~/#">About</a></li>
-                </ul>
+                
                 <div class="navbar-collapse collapse">
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="Register.aspx">Register</a></li>
-                                <li><a runat="server" href="Login.aspx">Log in</a></li>
+                                <li><a runat="server" href="~/Register.aspx">Register</a></li>
+                                <li><a runat="server" href="~/Login.aspx">Log in</a></li>
                             </ul>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
-
+                            <ul class="nav navbar-nav">
+                                <li><a runat="server" href="~/Default.aspx">Overview</a></li>
+                                <li><a runat="server" href="~/WorldMap.aspx">Worldmap</a></li>
+                                <li><a runat="server" href="~/">Attacks</a></li>
+                                <li><a runat="server" href="~/">Research</a></li>
+                                <li><a runat="server" href="~/">Leaderboards</a></li>
+                                <li><a runat="server" href="~/">Inbox</a></li>
+                                <li><a runat="server" href="~/">Options</a></li>
+                                <li><a runat="server" href="~/#">About</a></li>
+                            </ul>
 
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, !</a></li>
+                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%Response.Write(HttpContext.Current.User.Identity.Name); %> !</a></li>
                                 <li>
                                     <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" />
                                 </li>
                             </ul>
+
                         </LoggedInTemplate>
                     </asp:LoginView>
                 </div>
