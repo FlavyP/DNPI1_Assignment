@@ -18,7 +18,6 @@ namespace CottageWars
         protected void Page_Load(object sender, EventArgs e)
         {
             connectionString = @"Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=CottageWarsDB;Integrated Security=True";
-
             conn = new SqlConnection(connectionString);
         }
 

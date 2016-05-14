@@ -21,7 +21,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-5 col-sm-2 text-center">
-                                <asp:Button type="submit" class="btn btn-primary" ID="Button1" runat="server" Text="Submit" />
+                                <asp:Button type="submit" class="btn btn-primary" ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" />
                             </div>
                         </div>
                     </fieldset>
