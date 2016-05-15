@@ -12,11 +12,31 @@ namespace CottageWars
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           if (HttpContext.Current.User.Identity.IsAuthenticated){ 
-            //HtmlControl control = (HtmlControl)LoggedInContext.FindControl("hex") as HtmlControl;
-            //control.Visible = false;
-            //control.Attributes["data-original-title"] = "this is a dynamic tooltip";
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                HtmlControl control = (HtmlControl)LoggedInContext.FindControl("woodH") as HtmlControl;
+                //control.Attributes["data-original-title"] = "this is a dynamic tooltip";
+                string btn = "<button runat=\"server\" class=\"btn btn-default btn-sm\" ID=\"moreInfoWood\" OnServerClick=\"InfoWood_OnClick\">More information</button";
+
+                control.Attributes["data-content"] += btn;
             }
+        }
+
+        protected void InfoWood_OnClick(object Source, EventArgs e)
+        {
+            displayPopUpMessage("hello");
+        }
+
+        public void displayPopUpMessage(string message)
+        {
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            sb.Append("<script type = 'text/javascript'>");
+            sb.Append("window.onload=function(){");
+            sb.Append("alert('");
+            sb.Append(message);
+            sb.Append("')};");
+            sb.Append("</script>");
+            ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", sb.ToString());
         }
     }
 }
