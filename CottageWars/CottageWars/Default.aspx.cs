@@ -14,16 +14,23 @@ namespace CottageWars
         {
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                HtmlControl control = (HtmlControl)LoggedInContext.FindControl("woodH") as HtmlControl;
+                //HtmlControl control = (HtmlControl)LoggedInContext.FindControl("woodH") as HtmlControl;
                 //control.Attributes["data-original-title"] = "this is a dynamic tooltip";
-                string btn = "<button runat=\"server\" class=\"btn btn-default btn-sm\" ID=\"moreInfoWood\" OnServerClick=\"InfoWood_OnClick\">More information</button";
-
-                control.Attributes["data-content"] += btn;
+                //string btn = "<asp:Button runat=\"server\" class=\"btn btn-default btn-sm\" ID=\"moreInfoWood\" OnServerClick=\"InfoWood_OnClick\" >More information</button";
+               // Button button1 = new Button();
+                
+               // button1.ID = "moreInfoWood";
+               // button1.Click += new EventHandler(InfoWood_OnClick);
+               // control.Attributes["data-content"] += btn;
+                //middleStuff.Text = "1";
+               // Button but = (Button)FindControl("moreInfoWood");
+               // but.Click+= new EventHandler(InfoWood_OnClick);
             }
         }
 
         protected void InfoWood_OnClick(object Source, EventArgs e)
         {
+            //Response.Redirect("Login.aspx");
             displayPopUpMessage("hello");
         }
 

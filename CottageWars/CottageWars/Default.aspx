@@ -12,7 +12,7 @@
     <div class="jumbotron" runat="server">
       <div class="board" runat="server">
         <div class="hex-row" runat="server">
-            <div class="hex" runat="server"><div class="left"></div><div runat="server" ID="woodH" data-toggle="popover" data-placement="left"  data-original-title="Wood" data-content="Wood is a very important resource for your town that will allow you to expand and build an army." class="middle wood-img"></div><div class="right"></div></div>
+            <div class="hex" runat="server"><div class="left"></div><div runat="server" ID="woodH" data-toggle="popover" data-placement="left"  data-original-title="Wood" data-content="Wood is a very important resource for your town that will allow you to expand and build an army. <button onclick=&quot;document.getElementById('asdf').click()&quot;>click this</code> attribute." class="middle wood-img"></div><div class="right"></div></div>
             <div class="hex even" runat="server"><div class="left"></div><div runat="server" id="townhallH" data-toggle="popover" data-placement="top" data-original-title="Townhall" data-content="The main building of your village, which dictates how many troups you can have." class="middle townhall-img"></div><div class="right"></div></div>
             <div class="hex" runat="server"><div class="left"></div><div runat="server" id="barracksH" data-toggle="popover" data-placement="right" data-original-title="Barracks" data-content="Train troops to fight with your enemies and steal their resources." class="middle barracks-img"></div><div class="right"></div></div>
         </div>
@@ -23,6 +23,7 @@
         </div>                         
        </div>
     </div>
+        <asp:button runat="server" style="display: none" id="asdf" OnClick="InfoWood_OnClick" />
     </LoggedInTemplate>
     <AnonymousTemplate>
         <div class="jumbotron">
@@ -58,6 +59,7 @@
             </p>
         </div>
     </div>
+    
         </AnonymousTemplate>
     </asp:LoginView>
 
