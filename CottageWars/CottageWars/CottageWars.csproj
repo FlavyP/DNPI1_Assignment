@@ -164,9 +164,20 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <None Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Barracks.cs">
+      <DependentUpon>CottageWarsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Buildings.cs">
+      <DependentUpon>CottageWarsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Clay.cs">
+      <DependentUpon>CottageWarsDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="CottageWarsDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -188,6 +199,9 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Iron.cs">
+      <DependentUpon>CottageWarsDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -216,7 +230,19 @@
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Storage.cs">
+      <DependentUpon>CottageWarsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Townhall.cs">
+      <DependentUpon>CottageWarsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Units.cs">
+      <DependentUpon>CottageWarsDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
+      <DependentUpon>CottageWarsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Wood.cs">
       <DependentUpon>CottageWarsDB.tt</DependentUpon>
     </Compile>
   </ItemGroup>

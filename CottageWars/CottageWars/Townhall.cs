@@ -12,15 +12,23 @@ namespace CottageWars
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Townhall
     {
-        public short Id { get; set; }
-        public string Username { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string LastVisited { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Townhall()
+        {
+            this.cost = 5;
+            this.level = 0;
+            this.population = 0;
+            this.PPH = 0;
+        }
+    
+        public int Id { get; set; }
+        public short cost { get; set; }
+        public short level { get; set; }
+        public short population { get; set; }
+        public short PPH { get; set; }
     
         public virtual Buildings Building { get; set; }
-        public virtual Units Unit { get; set; }
     }
 }

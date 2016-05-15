@@ -26,5 +26,13 @@ namespace CottageWars
         }
     
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Buildings> Buildings { get; set; }
+        public virtual DbSet<Units> Units { get; set; }
+        public virtual DbSet<Townhall> Townhalls { get; set; }
+        public virtual DbSet<Wood> Woods { get; set; }
+        public virtual DbSet<Clay> Clays { get; set; }
+        public virtual DbSet<Iron> Irons { get; set; }
+        public virtual DbSet<Barracks> Barracks { get; set; }
+        public virtual DbSet<Storage> Storages { get; set; }
     }
 }

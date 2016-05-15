@@ -12,15 +12,13 @@ namespace CottageWars
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Units
     {
-        public short Id { get; set; }
-        public string Username { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string LastVisited { get; set; }
+        public int Id { get; set; }
+        public short Infatry { get; set; }
+        public short Gladiator { get; set; }
+        public short Brute { get; set; }
     
-        public virtual Buildings Building { get; set; }
-        public virtual Units Unit { get; set; }
+        public virtual User User { get; set; }
     }
 }

@@ -4,8 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="25ac895ddc8d4b83a9e285ab0c722f7b" Name="Diagram1" >
-        <EntityTypeShape EntityType="CottageWarsDB.User" Width="1.5" PointX="1.375" PointY="1.125" />
+      <Diagram DiagramId="25ac895ddc8d4b83a9e285ab0c722f7b" Name="Diagram1" ZoomLevel="94" >
+        <EntityTypeShape EntityType="CottageWarsDB.User" Width="1.5" PointX="6.375" PointY="4" />
+        <EntityTypeShape EntityType="CottageWarsDB.Buildings" Width="1.5" PointX="8.5" PointY="4" />
+        <EntityTypeShape EntityType="CottageWarsDB.Units" Width="1.5" PointX="4.375" PointY="4" />
+        <AssociationConnector Association="CottageWarsDB.UserBuildings" />
+        <EntityTypeShape EntityType="CottageWarsDB.Townhall" Width="1.5" PointX="11.875" PointY="7.625" />
+        <EntityTypeShape EntityType="CottageWarsDB.Wood" Width="1.5" PointX="16.75" PointY="8" />
+        <EntityTypeShape EntityType="CottageWarsDB.Clay" Width="1.5" PointX="13.5" PointY="8" />
+        <EntityTypeShape EntityType="CottageWarsDB.Iron" Width="1.5" PointX="15.125" PointY="8" />
+        <EntityTypeShape EntityType="CottageWarsDB.Barracks" Width="1.5" PointX="10.25" PointY="8" />
+        <EntityTypeShape EntityType="CottageWarsDB.Storage" Width="1.5" PointX="8.625" PointY="8" />
+        <AssociationConnector Association="CottageWarsDB.BuildingsBarracks" />
+        <AssociationConnector Association="CottageWarsDB.BuildingsClay" />
+        <AssociationConnector Association="CottageWarsDB.BuildingsIron" />
+        <AssociationConnector Association="CottageWarsDB.BuildingsWood" />
+        <AssociationConnector Association="CottageWarsDB.BuildingsStorage" />
+        <AssociationConnector Association="CottageWarsDB.BuildingsTownhall" />
+        <AssociationConnector Association="CottageWarsDB.UserUnits" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

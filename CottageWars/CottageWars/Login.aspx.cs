@@ -27,9 +27,7 @@ namespace CottageWars
 
             int authoCode = Authentification();
             if (authoCode == 1)
-            {
-                
-                Session["Login"] = nameText.Text;
+            { 
                 FormsAuthentication.RedirectFromLoginPage(nameText.Text, false);
                 
             }

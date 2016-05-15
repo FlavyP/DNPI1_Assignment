@@ -7,6 +7,46 @@
     <Schema Namespace="CottageWarsDB.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="CottageWarsDBStoreContainer">
     <EntitySet Name="Users" EntityType="CottageWarsDB.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Buildings" EntityType="CottageWarsDB.Store.Buildings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Units" EntityType="CottageWarsDB.Store.Units" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Townhalls" EntityType="CottageWarsDB.Store.Townhalls" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Woods" EntityType="CottageWarsDB.Store.Woods" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Clays" EntityType="CottageWarsDB.Store.Clays" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Irons" EntityType="CottageWarsDB.Store.Irons" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Barracks" EntityType="CottageWarsDB.Store.Barracks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Storages" EntityType="CottageWarsDB.Store.Storages" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="UserBuildings" Association="CottageWarsDB.Store.UserBuildings">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Buildings" EntitySet="Buildings" />
+    </AssociationSet>
+    <AssociationSet Name="BuildingsBarracks" Association="CottageWarsDB.Store.BuildingsBarracks">
+      <End Role="Buildings" EntitySet="Buildings" />
+      <End Role="Barracks" EntitySet="Barracks" />
+    </AssociationSet>
+    <AssociationSet Name="BuildingsClay" Association="CottageWarsDB.Store.BuildingsClay">
+      <End Role="Buildings" EntitySet="Buildings" />
+      <End Role="Clay" EntitySet="Clays" />
+    </AssociationSet>
+    <AssociationSet Name="BuildingsIron" Association="CottageWarsDB.Store.BuildingsIron">
+      <End Role="Buildings" EntitySet="Buildings" />
+      <End Role="Iron" EntitySet="Irons" />
+    </AssociationSet>
+    <AssociationSet Name="BuildingsWood" Association="CottageWarsDB.Store.BuildingsWood">
+      <End Role="Buildings" EntitySet="Buildings" />
+      <End Role="Wood" EntitySet="Woods" />
+    </AssociationSet>
+    <AssociationSet Name="BuildingsStorage" Association="CottageWarsDB.Store.BuildingsStorage">
+      <End Role="Buildings" EntitySet="Buildings" />
+      <End Role="Storage" EntitySet="Storages" />
+    </AssociationSet>
+    <AssociationSet Name="BuildingsTownhall" Association="CottageWarsDB.Store.BuildingsTownhall">
+      <End Role="Buildings" EntitySet="Buildings" />
+      <End Role="Townhall" EntitySet="Townhalls" />
+    </AssociationSet>
+    <AssociationSet Name="UserUnits" Association="CottageWarsDB.Store.UserUnits">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Units" EntitySet="Units" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Users">
     <Key>
@@ -16,14 +56,233 @@
     <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastVisited" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Building_Id" Type="int" Nullable="false" />
+    <Property Name="Unit_Id" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="Buildings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clayAmount" Type="smallint" Nullable="false" />
+    <Property Name="woodAmount" Type="smallint" Nullable="false" />
+    <Property Name="ironAmount" Type="smallint" Nullable="false" />
+    <Property Name="Barrack_Id" Type="int" Nullable="false" />
+    <Property Name="Clay_Id" Type="int" Nullable="false" />
+    <Property Name="Iron_Id" Type="int" Nullable="false" />
+    <Property Name="Wood_Id" Type="int" Nullable="false" />
+    <Property Name="Storage_Id" Type="int" Nullable="false" />
+    <Property Name="Townhall_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Units">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Infatry" Type="smallint" Nullable="false" />
+    <Property Name="Gladiator" Type="smallint" Nullable="false" />
+    <Property Name="Brute" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Townhalls">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cost" Type="smallint" Nullable="false" DefaultValue="5" />
+    <Property Name="level" Type="smallint" Nullable="false" DefaultValue="0" />
+    <Property Name="population" Type="smallint" Nullable="false" DefaultValue="0" />
+    <Property Name="PPH" Type="smallint" Nullable="false" DefaultValue="0" />
+  </EntityType>
+  <EntityType Name="Woods">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PPH" Type="smallint" Nullable="false" DefaultValue="1" />
+    <Property Name="cost" Type="smallint" Nullable="false" DefaultValue="5" />
+    <Property Name="level" Type="smallint" Nullable="false" DefaultValue="0" />
+  </EntityType>
+  <EntityType Name="Clays">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PPH" Type="smallint" Nullable="false" DefaultValue="1" />
+    <Property Name="cost" Type="smallint" Nullable="false" DefaultValue="5" />
+    <Property Name="level" Type="smallint" Nullable="false" DefaultValue="0" />
+  </EntityType>
+  <EntityType Name="Irons">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PPH" Type="smallint" Nullable="false" DefaultValue="1" />
+    <Property Name="cost" Type="smallint" Nullable="false" DefaultValue="5" />
+    <Property Name="level" Type="smallint" Nullable="false" DefaultValue="0" />
+  </EntityType>
+  <EntityType Name="Barracks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="maxUnits" Type="smallint" Nullable="false" DefaultValue="0" />
+    <Property Name="cost" Type="smallint" Nullable="false" DefaultValue="5" />
+    <Property Name="level" Type="smallint" Nullable="false" DefaultValue="0" />
+    <Property Name="unitCost" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Storages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="maxResource" Type="smallint" Nullable="false" DefaultValue="0" />
+    <Property Name="cost" Type="smallint" Nullable="false" DefaultValue="5" />
+    <Property Name="level" Type="smallint" Nullable="false" DefaultValue="0" />
+  </EntityType>
+  <Association Name="UserBuildings">
+    <End Role="User" Type="CottageWarsDB.Store.Users" Multiplicity="*" />
+    <End Role="Buildings" Type="CottageWarsDB.Store.Buildings" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Buildings">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Building_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BuildingsBarracks">
+    <End Role="Buildings" Type="CottageWarsDB.Store.Buildings" Multiplicity="*" />
+    <End Role="Barracks" Type="CottageWarsDB.Store.Barracks" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Barracks">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Buildings">
+        <PropertyRef Name="Barrack_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BuildingsClay">
+    <End Role="Buildings" Type="CottageWarsDB.Store.Buildings" Multiplicity="*" />
+    <End Role="Clay" Type="CottageWarsDB.Store.Clays" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Clay">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Buildings">
+        <PropertyRef Name="Clay_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BuildingsIron">
+    <End Role="Buildings" Type="CottageWarsDB.Store.Buildings" Multiplicity="*" />
+    <End Role="Iron" Type="CottageWarsDB.Store.Irons" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Iron">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Buildings">
+        <PropertyRef Name="Iron_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BuildingsWood">
+    <End Role="Buildings" Type="CottageWarsDB.Store.Buildings" Multiplicity="*" />
+    <End Role="Wood" Type="CottageWarsDB.Store.Woods" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Wood">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Buildings">
+        <PropertyRef Name="Wood_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BuildingsStorage">
+    <End Role="Buildings" Type="CottageWarsDB.Store.Buildings" Multiplicity="*" />
+    <End Role="Storage" Type="CottageWarsDB.Store.Storages" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Storage">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Buildings">
+        <PropertyRef Name="Storage_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BuildingsTownhall">
+    <End Role="Buildings" Type="CottageWarsDB.Store.Buildings" Multiplicity="*" />
+    <End Role="Townhall" Type="CottageWarsDB.Store.Townhalls" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Townhall">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Buildings">
+        <PropertyRef Name="Townhall_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserUnits">
+    <End Role="User" Type="CottageWarsDB.Store.Users" Multiplicity="*" />
+    <End Role="Units" Type="CottageWarsDB.Store.Units" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Units">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Unit_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="CottageWarsDB" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="CottageWarsDBContainer" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Users" EntityType="CottageWarsDB.User" />
-        </EntityContainer>
+          <EntitySet Name="Buildings" EntityType="CottageWarsDB.Buildings" />
+          <EntitySet Name="Units" EntityType="CottageWarsDB.Units" />
+          <AssociationSet Name="UserBuildings" Association="CottageWarsDB.UserBuildings">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Buildings" EntitySet="Buildings" />
+          </AssociationSet>
+          <EntitySet Name="Townhalls" EntityType="CottageWarsDB.Townhall" />
+          <EntitySet Name="Woods" EntityType="CottageWarsDB.Wood" />
+          <EntitySet Name="Clays" EntityType="CottageWarsDB.Clay" />
+          <EntitySet Name="Irons" EntityType="CottageWarsDB.Iron" />
+          <EntitySet Name="Barracks" EntityType="CottageWarsDB.Barracks" />
+          <EntitySet Name="Storages" EntityType="CottageWarsDB.Storage" />
+          <AssociationSet Name="BuildingsBarracks" Association="CottageWarsDB.BuildingsBarracks">
+            <End Role="Buildings" EntitySet="Buildings" />
+            <End Role="Barracks" EntitySet="Barracks" />
+          </AssociationSet>
+          <AssociationSet Name="BuildingsClay" Association="CottageWarsDB.BuildingsClay">
+            <End Role="Buildings" EntitySet="Buildings" />
+            <End Role="Clay" EntitySet="Clays" />
+          </AssociationSet>
+          <AssociationSet Name="BuildingsIron" Association="CottageWarsDB.BuildingsIron">
+            <End Role="Buildings" EntitySet="Buildings" />
+            <End Role="Iron" EntitySet="Irons" />
+          </AssociationSet>
+          <AssociationSet Name="BuildingsWood" Association="CottageWarsDB.BuildingsWood">
+            <End Role="Buildings" EntitySet="Buildings" />
+            <End Role="Wood" EntitySet="Woods" />
+          </AssociationSet>
+          <AssociationSet Name="BuildingsStorage" Association="CottageWarsDB.BuildingsStorage">
+            <End Role="Buildings" EntitySet="Buildings" />
+            <End Role="Storage" EntitySet="Storages" />
+          </AssociationSet>
+          <AssociationSet Name="BuildingsTownhall" Association="CottageWarsDB.BuildingsTownhall">
+            <End Role="Buildings" EntitySet="Buildings" />
+            <End Role="Townhall" EntitySet="Townhalls" />
+          </AssociationSet>
+          <AssociationSet Name="UserUnits" Association="CottageWarsDB.UserUnits">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Units" EntitySet="Units" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
@@ -32,8 +291,131 @@
           <Property Name="Username" Type="String" Nullable="false" />
           <Property Name="Email" Type="String" Nullable="false" />
           <Property Name="Password" Type="String" Nullable="false" />
+          <NavigationProperty Name="Building" Relationship="CottageWarsDB.UserBuildings" FromRole="User" ToRole="Buildings" />
+          <Property Name="LastVisited" Type="String" Nullable="false" />
+          <NavigationProperty Name="Unit" Relationship="CottageWarsDB.UserUnits" FromRole="User" ToRole="Units" />
         </EntityType>
-      </Schema>
+        <EntityType Name="Buildings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="User" Relationship="CottageWarsDB.UserBuildings" FromRole="Buildings" ToRole="User" />
+          <NavigationProperty Name="Barrack" Relationship="CottageWarsDB.BuildingsBarracks" FromRole="Buildings" ToRole="Barracks" />
+          <NavigationProperty Name="Clay" Relationship="CottageWarsDB.BuildingsClay" FromRole="Buildings" ToRole="Clay" />
+          <NavigationProperty Name="Iron" Relationship="CottageWarsDB.BuildingsIron" FromRole="Buildings" ToRole="Iron" />
+          <NavigationProperty Name="Wood" Relationship="CottageWarsDB.BuildingsWood" FromRole="Buildings" ToRole="Wood" />
+          <NavigationProperty Name="Storage" Relationship="CottageWarsDB.BuildingsStorage" FromRole="Buildings" ToRole="Storage" />
+          <NavigationProperty Name="Townhall" Relationship="CottageWarsDB.BuildingsTownhall" FromRole="Buildings" ToRole="Townhall" />
+          <Property Name="clayAmount" Type="Int16" Nullable="false" />
+          <Property Name="woodAmount" Type="Int16" Nullable="false" />
+          <Property Name="ironAmount" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Units">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Infatry" Type="Int16" Nullable="false" />
+          <Property Name="Gladiator" Type="Int16" Nullable="false" />
+          <Property Name="Brute" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="CottageWarsDB.UserUnits" FromRole="Units" ToRole="User" />
+          </EntityType>
+        <Association Name="UserBuildings">
+          <End Type="CottageWarsDB.User" Role="User" Multiplicity="1" />
+          <End Type="CottageWarsDB.Buildings" Role="Buildings" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Townhall">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Building" Relationship="CottageWarsDB.BuildingsTownhall" FromRole="Townhall" ToRole="Buildings" />
+          <Property Name="cost" Type="Int16" Nullable="false" DefaultValue="5" />
+          <Property Name="level" Type="Int16" Nullable="false" DefaultValue="0" />
+          <Property Name="population" Type="Int16" Nullable="false" DefaultValue="0" />
+          <Property Name="PPH" Type="Int16" Nullable="false" DefaultValue="0" />
+        </EntityType>
+        <EntityType Name="Wood">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Building" Relationship="CottageWarsDB.BuildingsWood" FromRole="Wood" ToRole="Buildings" />
+          <Property Name="PPH" Type="Int16" Nullable="false" DefaultValue="1" />
+          <Property Name="cost" Type="Int16" Nullable="false" DefaultValue="5" />
+          <Property Name="level" Type="Int16" Nullable="false" DefaultValue="0" />
+        </EntityType>
+        <EntityType Name="Clay">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Building" Relationship="CottageWarsDB.BuildingsClay" FromRole="Clay" ToRole="Buildings" />
+          <Property Name="PPH" Type="Int16" Nullable="false" DefaultValue="1" />
+          <Property Name="cost" Type="Int16" Nullable="false" DefaultValue="5" />
+          <Property Name="level" Type="Int16" Nullable="false" DefaultValue="0" />
+        </EntityType>
+        <EntityType Name="Iron">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Building" Relationship="CottageWarsDB.BuildingsIron" FromRole="Iron" ToRole="Buildings" />
+          <Property Name="PPH" Type="Int16" Nullable="false" DefaultValue="1" />
+          <Property Name="cost" Type="Int16" Nullable="false" DefaultValue="5" />
+          <Property Name="level" Type="Int16" Nullable="false" DefaultValue="0" />
+        </EntityType>
+        <EntityType Name="Barracks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Building" Relationship="CottageWarsDB.BuildingsBarracks" FromRole="Barracks" ToRole="Buildings" />
+          <Property Name="maxUnits" Type="Int16" Nullable="false" DefaultValue="0" />
+          <Property Name="cost" Type="Int16" Nullable="false" DefaultValue="5" />
+          <Property Name="level" Type="Int16" Nullable="false" DefaultValue="0" />
+          <Property Name="unitCost" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Storage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Building" Relationship="CottageWarsDB.BuildingsStorage" FromRole="Storage" ToRole="Buildings" />
+          <Property Name="maxResource" Type="Int16" Nullable="false" DefaultValue="0" />
+          <Property Name="cost" Type="Int16" Nullable="false" DefaultValue="5" />
+          <Property Name="level" Type="Int16" Nullable="false" DefaultValue="0" />
+        </EntityType>
+        <Association Name="BuildingsBarracks">
+          <End Type="CottageWarsDB.Buildings" Role="Buildings" Multiplicity="1" />
+          <End Type="CottageWarsDB.Barracks" Role="Barracks" Multiplicity="1" />
+        </Association>
+        <Association Name="BuildingsClay">
+          <End Type="CottageWarsDB.Buildings" Role="Buildings" Multiplicity="1" />
+          <End Type="CottageWarsDB.Clay" Role="Clay" Multiplicity="1" />
+        </Association>
+        <Association Name="BuildingsIron">
+          <End Type="CottageWarsDB.Buildings" Role="Buildings" Multiplicity="1" />
+          <End Type="CottageWarsDB.Iron" Role="Iron" Multiplicity="1" />
+        </Association>
+        <Association Name="BuildingsWood">
+          <End Type="CottageWarsDB.Buildings" Role="Buildings" Multiplicity="1" />
+          <End Type="CottageWarsDB.Wood" Role="Wood" Multiplicity="1" />
+        </Association>
+        <Association Name="BuildingsStorage">
+          <End Type="CottageWarsDB.Buildings" Role="Buildings" Multiplicity="1" />
+          <End Type="CottageWarsDB.Storage" Role="Storage" Multiplicity="1" />
+        </Association>
+        <Association Name="BuildingsTownhall">
+          <End Type="CottageWarsDB.Buildings" Role="Buildings" Multiplicity="1" />
+          <End Type="CottageWarsDB.Townhall" Role="Townhall" Multiplicity="1" />
+        </Association>
+        <Association Name="UserUnits">
+          <End Type="CottageWarsDB.User" Role="User" Multiplicity="1" />
+          <End Type="CottageWarsDB.Units" Role="Units" Multiplicity="1" />
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -46,9 +428,156 @@
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="LastVisited" ColumnName="LastVisited" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Buildings">
+      <EntityTypeMapping TypeName="IsTypeOf(CottageWarsDB.Buildings)">
+        <MappingFragment StoreEntitySet="Buildings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="clayAmount" ColumnName="clayAmount" />
+          <ScalarProperty Name="woodAmount" ColumnName="woodAmount" />
+          <ScalarProperty Name="ironAmount" ColumnName="ironAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Units">
+      <EntityTypeMapping TypeName="IsTypeOf(CottageWarsDB.Units)">
+        <MappingFragment StoreEntitySet="Units">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Infatry" ColumnName="Infatry" />
+          <ScalarProperty Name="Gladiator" ColumnName="Gladiator" />
+          <ScalarProperty Name="Brute" ColumnName="Brute" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Townhalls">
+      <EntityTypeMapping TypeName="IsTypeOf(CottageWarsDB.Townhall)">
+        <MappingFragment StoreEntitySet="Townhalls">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="level" ColumnName="level" />
+          <ScalarProperty Name="population" ColumnName="population" />
+          <ScalarProperty Name="PPH" ColumnName="PPH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Woods">
+      <EntityTypeMapping TypeName="IsTypeOf(CottageWarsDB.Wood)">
+        <MappingFragment StoreEntitySet="Woods">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PPH" ColumnName="PPH" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="level" ColumnName="level" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clays">
+      <EntityTypeMapping TypeName="IsTypeOf(CottageWarsDB.Clay)">
+        <MappingFragment StoreEntitySet="Clays">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PPH" ColumnName="PPH" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="level" ColumnName="level" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Irons">
+      <EntityTypeMapping TypeName="IsTypeOf(CottageWarsDB.Iron)">
+        <MappingFragment StoreEntitySet="Irons">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PPH" ColumnName="PPH" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="level" ColumnName="level" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Barracks">
+      <EntityTypeMapping TypeName="IsTypeOf(CottageWarsDB.Barracks)">
+        <MappingFragment StoreEntitySet="Barracks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="maxUnits" ColumnName="maxUnits" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="level" ColumnName="level" />
+          <ScalarProperty Name="unitCost" ColumnName="unitCost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Storages">
+      <EntityTypeMapping TypeName="IsTypeOf(CottageWarsDB.Storage)">
+        <MappingFragment StoreEntitySet="Storages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="maxResource" ColumnName="maxResource" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="level" ColumnName="level" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="UserBuildings" TypeName="CottageWarsDB.UserBuildings" StoreEntitySet="Users">
+      <EndProperty Name="Buildings">
+        <ScalarProperty Name="Id" ColumnName="Building_Id" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BuildingsBarracks" TypeName="CottageWarsDB.BuildingsBarracks" StoreEntitySet="Buildings">
+      <EndProperty Name="Barracks">
+        <ScalarProperty Name="Id" ColumnName="Barrack_Id" />
+      </EndProperty>
+      <EndProperty Name="Buildings">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BuildingsClay" TypeName="CottageWarsDB.BuildingsClay" StoreEntitySet="Buildings">
+      <EndProperty Name="Clay">
+        <ScalarProperty Name="Id" ColumnName="Clay_Id" />
+      </EndProperty>
+      <EndProperty Name="Buildings">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BuildingsIron" TypeName="CottageWarsDB.BuildingsIron" StoreEntitySet="Buildings">
+      <EndProperty Name="Iron">
+        <ScalarProperty Name="Id" ColumnName="Iron_Id" />
+      </EndProperty>
+      <EndProperty Name="Buildings">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BuildingsWood" TypeName="CottageWarsDB.BuildingsWood" StoreEntitySet="Buildings">
+      <EndProperty Name="Wood">
+        <ScalarProperty Name="Id" ColumnName="Wood_Id" />
+      </EndProperty>
+      <EndProperty Name="Buildings">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BuildingsStorage" TypeName="CottageWarsDB.BuildingsStorage" StoreEntitySet="Buildings">
+      <EndProperty Name="Storage">
+        <ScalarProperty Name="Id" ColumnName="Storage_Id" />
+      </EndProperty>
+      <EndProperty Name="Buildings">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BuildingsTownhall" TypeName="CottageWarsDB.BuildingsTownhall" StoreEntitySet="Buildings">
+      <EndProperty Name="Townhall">
+        <ScalarProperty Name="Id" ColumnName="Townhall_Id" />
+      </EndProperty>
+      <EndProperty Name="Buildings">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UserUnits" TypeName="CottageWarsDB.UserUnits" StoreEntitySet="Users">
+      <EndProperty Name="Units">
+        <ScalarProperty Name="Id" ColumnName="Unit_Id" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
