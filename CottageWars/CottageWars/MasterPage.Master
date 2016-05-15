@@ -51,7 +51,6 @@
                                 <li><a runat="server" href="~/">Inbox</a></li>
                                 <li><a runat="server" href="~/">Options</a></li>
                                 <li><a runat="server" href="~/#">About</a></li>
-                                <li><button type="button" class="btn btn-primary ole two" data-toggle="tooltip" data-placement="left" data-original-title="this is a top tooltip">Pipo</button></li>
                             </ul>
 
                             <ul class="nav navbar-nav navbar-right">

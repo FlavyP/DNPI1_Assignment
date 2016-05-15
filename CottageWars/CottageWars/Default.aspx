@@ -12,14 +12,14 @@
     <div class="jumbotron" runat="server">
       <div class="board" runat="server">
                                                 <div class="hex-row" runat="server">
-                                                    <div class="hex" runat="server"><div class="left"></div><div runat="server" ID="hex" data-toggle="tooltip" data-placement="right"  class="middle"></div><div class="right"></div></div>
-                                                    <div class="hex even"><div class="left"></div><div data-toggle="tooltip" data-placement="right" data-original-title="this is a top tooltip" class="middle"></div><div class="right"></div></div>
-                                                    <div class="hex"><div class="left"></div><div data-toggle="tooltip" data-placement="right" data-original-title="this is a top tooltip" class="middle"></div><div class="right"></div></div>
+                                                    <div class="hex" ><div class="left"></div><div data-toggle="popover" data-placement="left"  data-original-title="Wood" data-content="Wood is a very important resource for your town that will allow you to expand and build an army." class="middle wood-img"></div><div class="right"></div></div>
+                                                    <div class="hex even"><div class="left"></div><div data-toggle="popover" data-placement="top" data-original-title="Townhall" data-content="The main building of your village, which dictates how many troups you can have." class="middle townhall-img"></div><div class="right"></div></div>
+                                                    <div class="hex"><div class="left"></div><div data-toggle="popover" data-placement="right" data-original-title="Barracks" data-content="Train troops to fight with your enemies and steal their resources." class="middle barracks-img"></div><div class="right"></div></div>
                                                 </div>
                                                 <div class="hex-row">
-                                                    <div class="hex"><div class="left"></div><div data-toggle="tooltip" data-placement="right" data-original-title="this is a top tooltip" class="middle"></div><div class="right"></div></div>
-                                                    <div class="hex even"><div class="left"></div><div data-toggle="tooltip" data-placement="right" data-original-title="this is a top tooltip" class="middle"></div><div class="right"></div></div>
-                                                    <div class="hex"><div class="left"></div><div data-toggle="tooltip" data-placement="right" data-original-title="this is a top tooltip" class="middle"></div><div class="right"></div></div>
+                                                    <div class="hex"><div class="left"></div><div data-toggle="popover" data-placement="left" data-original-title="Iron" data-content="Another important resource for your ascension in the fight with your enemies." class="middle iron-img"></div><div class="right"></div></div>
+                                                    <div class="hex even"><div class="left"></div><div data-toggle="popover" data-placement="bottom" data-original-title="Clay" data-content="Without clay you can't build anything or train any troops." class="middle clay-img"></div><div class="right"></div></div>
+                                                    <div class="hex"><div class="left"></div><div data-toggle="popover" data-placement="right" data-original-title="Storage" data-content="In order to store more resources you need to increase your storage facility." class="middle storage-img"></div><div class="right"></div></div>
                                                 </div>
                                                
                                                 </div>

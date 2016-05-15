@@ -74,3 +74,27 @@ input[type="select"] {
     height:400px;
     border: 1px solid black;
 }
+
+.wood-img {
+    content:url(../img/wood.png);
+}
+
+.clay-img {
+    content:url(../img/clay.png);
+}
+
+.iron-img {
+    content:url(../img/iron.png);
+}
+
+.townhall-img {
+    content:url(../img/townhall.png);
+}
+
+.barracks-img {
+    content:url(../img/barracks.png);
+}
+
+.storage-img {
+    content:url(../img/storage.png);
+}
