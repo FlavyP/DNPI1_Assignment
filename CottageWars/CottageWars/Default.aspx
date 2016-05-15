@@ -11,19 +11,19 @@
     <div class="jumbotron">
       <div class="board">
                                                 <div class="hex-row">
-                                                    <div class="hex"><div class="left"></div><div class="middle"></div><div class="right"></div></div>
-                                                    <div class="hex even"><div class="left"></div><div class="middle"></div><div class="right"></div></div>
-                                                    <div class="hex"><div class="left"></div><div class="middle"></div><div class="right"></div></div>
+                                                    <div class="hex"><div class="left"></div><div data-toggle="tooltip" data-placement="right" data-original-title="this is a top tooltip" class="middle"></div><div class="right"></div></div>
+                                                    <div class="hex even"><div class="left"></div><div data-toggle="tooltip" data-placement="right" data-original-title="this is a top tooltip" class="middle"></div><div class="right"></div></div>
+                                                    <div class="hex"><div class="left"></div><div data-toggle="tooltip" data-placement="right" data-original-title="this is a top tooltip" class="middle"></div><div class="right"></div></div>
                                                 </div>
                                                 <div class="hex-row">
-                                                    <div class="hex"><div class="left"></div><div class="middle"></div><div class="right"></div></div>
-                                                    <div class="hex even"><div class="left"></div><div class="middle"></div><div class="right"></div></div>
-                                                    <div class="hex"><div class="left"></div><div class="middle"></div><div class="right"></div></div>
+                                                    <div class="hex"><div class="left"></div><div data-toggle="tooltip" data-placement="right" data-original-title="this is a top tooltip" class="middle"></div><div class="right"></div></div>
+                                                    <div class="hex even"><div class="left"></div><div data-toggle="tooltip" data-placement="right" data-original-title="this is a top tooltip" class="middle"></div><div class="right"></div></div>
+                                                    <div class="hex"><div class="left"></div><div data-toggle="tooltip" data-placement="right" data-original-title="this is a top tooltip" class="middle"></div><div class="right"></div></div>
                                                 </div>
                                                 <div class="hex-row">
-                                                    <div class="hex"><div class="left"></div><div class="middle"></div><div class="right"></div></div>
-                                                    <div class="hex even"><div class="left"></div><div class="middle"></div><div class="right"></div></div>
-                                                    <div class="hex"><div class="left"></div><div class="middle"></div><div class="right"></div></div>
+                                                    <div class="hex"><div class="left"></div><div data-toggle="tooltip" data-placement="right" data-original-title="this is a top tooltip" class="middle"></div><div class="right"></div></div>
+                                                    <div class="hex even"><div class="left"></div><div data-toggle="tooltip" data-placement="right" data-original-title="this is a top tooltip" class="middle"></div><div class="right"></div></div>
+                                                    <div class="hex"><div class="left"></div><div data-toggle="tooltip" data-placement="right" data-original-title="this is a top tooltip" class="middle"></div><div class="right"></div></div>
                                                 </div>
                                                 </div>
           
