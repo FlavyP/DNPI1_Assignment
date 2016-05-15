@@ -31,6 +31,7 @@ namespace CottageWars
                 
                 Session["Login"] = nameText.Text;
                 FormsAuthentication.RedirectFromLoginPage(nameText.Text, false);
+                
             }
         }
 

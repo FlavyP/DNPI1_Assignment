@@ -1,17 +1,18 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="CottageWars.Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:LoginView runat="server" ViewStateMode="Disabled">
-    <LoggedInTemplate>
-    <div class="jumbotron">
+    <asp:LoginView ID="LoggedInContext" runat="server" ViewStateMode="Disabled">
+    <LoggedInTemplate runat="server">
+    <div id="divCenter" runat="server" class="divhead"></div>
+    <div class="jumbotron" runat="server">
         <!--Remove --user-- when session stuff are done. -->
         <h1><%Response.Write(HttpContext.Current.User.Identity.Name); %>'s Village</h1>
         <p class="lead">Maybe reduce the height of this one or make a table insight it with building spaces of the city.</p>
     </div>
-    <div class="jumbotron">
-      <div class="board">
-                                                <div class="hex-row">
-                                                    <div class="hex"><div class="left"></div><div data-toggle="tooltip" data-placement="right" data-original-title="this is a top tooltip" class="middle"></div><div class="right"></div></div>
+    <div class="jumbotron" runat="server">
+      <div class="board" runat="server">
+                                                <div class="hex-row" runat="server">
+                                                    <div class="hex" runat="server"><div class="left"></div><div runat="server" ID="hex" data-toggle="tooltip" data-placement="right"  class="middle"></div><div class="right"></div></div>
                                                     <div class="hex even"><div class="left"></div><div data-toggle="tooltip" data-placement="right" data-original-title="this is a top tooltip" class="middle"></div><div class="right"></div></div>
                                                     <div class="hex"><div class="left"></div><div data-toggle="tooltip" data-placement="right" data-original-title="this is a top tooltip" class="middle"></div><div class="right"></div></div>
                                                 </div>
@@ -20,11 +21,7 @@
                                                     <div class="hex even"><div class="left"></div><div data-toggle="tooltip" data-placement="right" data-original-title="this is a top tooltip" class="middle"></div><div class="right"></div></div>
                                                     <div class="hex"><div class="left"></div><div data-toggle="tooltip" data-placement="right" data-original-title="this is a top tooltip" class="middle"></div><div class="right"></div></div>
                                                 </div>
-                                                <div class="hex-row">
-                                                    <div class="hex"><div class="left"></div><div data-toggle="tooltip" data-placement="right" data-original-title="this is a top tooltip" class="middle"></div><div class="right"></div></div>
-                                                    <div class="hex even"><div class="left"></div><div data-toggle="tooltip" data-placement="right" data-original-title="this is a top tooltip" class="middle"></div><div class="right"></div></div>
-                                                    <div class="hex"><div class="left"></div><div data-toggle="tooltip" data-placement="right" data-original-title="this is a top tooltip" class="middle"></div><div class="right"></div></div>
-                                                </div>
+                                               
                                                 </div>
           
     </div>
@@ -65,4 +62,5 @@
     </div>
         </AnonymousTemplate>
     </asp:LoginView>
+
 </asp:Content>
