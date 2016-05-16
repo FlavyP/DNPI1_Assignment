@@ -18,8 +18,8 @@ namespace CottageWars
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            connectionString = @"Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=CottageWarsDB;Integrated Security=True";
-            conn = new SqlConnection(connectionString);
+            //connectionString = @"Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=CottageWarsDB;Integrated Security=True";
+            //conn = new SqlConnection(connectionString);
         }
 
         protected void submitButton_Click1(object sender, EventArgs e)
@@ -30,14 +30,12 @@ namespace CottageWars
                 if(service.checkForUserE(emailText.Text))
                 {
                     displayPopUpMessage("User already exists.");
-                    
-
                 }
                 else
                 {
-                    displayPopUpMessage("User Registered.");
                     service.registerUser(nameText.Text, passwordText.Text, emailText.Text);
-                    
+                    displayPopUpMessage("User Registered.");
+
                     //displayPopUpMessage(count.ToString());
 
 

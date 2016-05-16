@@ -18,8 +18,8 @@ namespace CottageWars
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            connectionString = @"Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=CottageWarsDB;Integrated Security=True";
-            conn = new SqlConnection(connectionString);
+            //connectionString = @"Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=CottageWarsDB;Integrated Security=True";
+            //conn = new SqlConnection(connectionString);
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -30,7 +30,6 @@ namespace CottageWars
             if (service.checkForUserUP(nameText.Text, passwordText.Text))
             { 
                 FormsAuthentication.RedirectFromLoginPage(nameText.Text, false);
-                
             }
         }
 

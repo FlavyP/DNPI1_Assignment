@@ -61,6 +61,14 @@
                         Unit cost
                       </li>
                     </ul>
+                    <div class="row" runat="server">
+                        <button class="btn btn-primary" ID="upgradeBuildingBtn" runat="server">Upgrade building</button>
+                        <div class="btn-toolbar" runat="server">
+                            <button class="btn btn-primary" ID="trainInfantryBtn" runat="server">Train infantry</button>
+                            <button class="btn btn-primary" ID="trainGladiatorBtn" runat="server">Train gladiator</button>
+                            <button class="btn btn-primary" ID="trainBruteBtn" runat="server">Train brute</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>                        
