@@ -34,6 +34,7 @@ namespace CottageWars
             setComponentVisibility("productionGroup", true);
             setComponentVisibility("unitLimitGroup", false);
             setComponentVisibility("unitCostGroup", false);
+            setComponentVisibility("trainTroopsGroup", false);
             buildingControl.Visible = true;
         }
         protected void InfoTownhall_OnClick(object Source, EventArgs e)
@@ -48,6 +49,7 @@ namespace CottageWars
             setComponentVisibility("productionGroup", true);
             setComponentVisibility("unitLimitGroup", false);
             setComponentVisibility("unitCostGroup", false);
+            setComponentVisibility("trainTroopsGroup", false);
             buildingControl.Visible = true;
         }
         protected void InfoBarracks_OnClick(object Source, EventArgs e)
@@ -76,6 +78,7 @@ namespace CottageWars
             setComponentVisibility("productionGroup", true);
             setComponentVisibility("unitLimitGroup", false);
             setComponentVisibility("unitCostGroup", false);
+            setComponentVisibility("trainTroopsGroup", false);
             buildingControl.Visible = true;
         }
         protected void InfoClay_OnClick(object Source, EventArgs e)
@@ -90,6 +93,7 @@ namespace CottageWars
             setComponentVisibility("productionGroup", true);
             setComponentVisibility("unitLimitGroup", false);
             setComponentVisibility("unitCostGroup", false);
+            setComponentVisibility("trainTroopsGroup", false);
             buildingControl.Visible = true;
         }
         protected void InfoStorage_OnClick(object Source, EventArgs e)
@@ -104,7 +108,28 @@ namespace CottageWars
             setComponentVisibility("productionGroup", false);
             setComponentVisibility("unitLimitGroup", false);
             setComponentVisibility("unitCostGroup", false);
+            setComponentVisibility("trainTroopsGroup", false);
             buildingControl.Visible = true;
+        }
+
+        protected void TrainInfantry_OnClick(object Source, EventArgs e)
+        {
+            displayPopUpMessage("Infantry");
+        }
+
+        protected void TrainGladitoare_OnClick(object Source, EventArgs e)
+        {
+            displayPopUpMessage("Gladiator");
+        }
+
+        protected void TrainBrute_OnClick(object Source, EventArgs e)
+        {
+            displayPopUpMessage("Brute");
+        }
+
+        protected void UpgradeBuilding_OnClick(object Source, EventArgs e)
+        {
+            displayPopUpMessage("Building");
         }
 
         public void displayPopUpMessage(string message)

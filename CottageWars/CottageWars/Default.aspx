@@ -62,11 +62,11 @@
                       </li>
                     
                     <div class="text-center" runat="server">
-                        <button class="btn btn-primary" ID="upgradeBuildingBtn" runat="server" style="margin-top: 5px;">Upgrade building</button>
-                        <div class=" text-center" style="margin-top: 5px;" runat="server">
-                            <button class="btn btn-primary" ID="trainInfantryBtn" runat="server">1</button>
-                            <button class="btn btn-primary" ID="trainGladiatorBtn" runat="server">1</button>
-                            <button class="btn btn-primary" ID="trainBruteBtn" runat="server">1</button>
+                        <asp:button class="btn btn-primary" ID="upgradeBuildingBtn" runat="server" style="margin-top: 5px;" OnClick="UpgradeBuilding_OnClick" Text="Upgrade building"></asp:button>
+                        <div class=" text-center" style="margin-top: 5px;" ID="trainTroopsGroup" runat="server">
+                            <asp:button class="btn btn-primary" ID="trainInfantryBtn" runat="server" OnClick="TrainInfantry_OnClick" Text="Train infantry" />
+                            <asp:button class="btn btn-primary" ID="trainGladiatorBtn" runat="server" OnClick="TrainGladitoare_OnClick" Text="Train gladiator" />
+                            <asp:button class="btn btn-primary" ID="trainBruteBtn" runat="server" OnClick="TrainBrute_OnClick" Text="Train brute" />
                         </div>
 
                     </div>
