@@ -54,7 +54,7 @@
                             </ul>
 
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%Response.Write(HttpContext.Current.User.Identity.Name); %> !</a></li>
+                                <li><a runat="server" href="#" title="Manage your account">Hello, <%Response.Write(HttpContext.Current.User.Identity.Name); %>!</a></li>
                                 <li>
                                     <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" />
                                 </li>
@@ -80,9 +80,9 @@
                                     <h3 class="panel-title">Resource bar</h3>
                                 </div>
                                 <div class="panel-body">
-                                   <asp:Label ID="wood" runat="server">Some text in them</asp:Label>
-                                    <asp:Label ID="clay" runat="server">Some text in them</asp:Label>
-                                    <asp:Label ID="iron" runat="server">Some text in them</asp:Label>
+                                   <asp:Label ID="woodLabel" runat="server" style="color: red" Text="Wood: " ></asp:Label> <asp:Label ID="woodCurrent" runat="server">0</asp:Label>
+                                    <asp:Label ID="clay" runat="server" style="color: red"> Clay: </asp:Label> <asp:Label ID="clayCurrent" runat="server">0</asp:Label>
+                                    <asp:Label ID="iron" runat="server" style="color: red"> Iron: </asp:Label> <asp:Label ID="ironCurrent" runat="server">0</asp:Label>
                                 </div>
                             </div>
                         </div>

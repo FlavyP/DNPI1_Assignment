@@ -10,28 +10,101 @@ namespace CottageWars
 {
     public partial class Default : System.Web.UI.Page
     {
+        private HtmlControl buildingControl;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                //HtmlControl control = (HtmlControl)LoggedInContext.FindControl("woodH") as HtmlControl;
+                buildingControl = (HtmlControl)LoggedInContext.FindControl("buildingPanel") as HtmlControl;
+                buildingControl.Visible = false;
                 //control.Attributes["data-original-title"] = "this is a dynamic tooltip";
-                //string btn = "<asp:Button runat=\"server\" class=\"btn btn-default btn-sm\" ID=\"moreInfoWood\" OnServerClick=\"InfoWood_OnClick\" >More information</button";
-               // Button button1 = new Button();
-                
-               // button1.ID = "moreInfoWood";
-               // button1.Click += new EventHandler(InfoWood_OnClick);
-               // control.Attributes["data-content"] += btn;
-                //middleStuff.Text = "1";
-               // Button but = (Button)FindControl("moreInfoWood");
-               // but.Click+= new EventHandler(InfoWood_OnClick);
             }
         }
 
         protected void InfoWood_OnClick(object Source, EventArgs e)
         {
             //Response.Redirect("Login.aspx");
-            displayPopUpMessage("hello");
+            //displayPopUpMessage("Wood");
+            setPanelTitle("Wood");
+            setComponentValue("levelBadge", "1");
+            setComponentValue("costBadge", "100");
+            setComponentVisibility("maxResourceGroup", false);
+            setComponentVisibility("townPopulationGroup", false);
+            setComponentVisibility("productionGroup", true);
+            setComponentVisibility("unitLimitGroup", false);
+            setComponentVisibility("unitCostGroup", false);
+            buildingControl.Visible = true;
+        }
+        protected void InfoTownhall_OnClick(object Source, EventArgs e)
+        {
+            //Response.Redirect("Login.aspx");
+            //displayPopUpMessage("Townhall");
+            setPanelTitle("Townhall");
+            setComponentValue("levelBadge", "1");
+            setComponentValue("costBadge", "150");
+            setComponentVisibility("maxResourceGroup", false);
+            setComponentVisibility("townPopulationGroup", true);
+            setComponentVisibility("productionGroup", true);
+            setComponentVisibility("unitLimitGroup", false);
+            setComponentVisibility("unitCostGroup", false);
+            buildingControl.Visible = true;
+        }
+        protected void InfoBarracks_OnClick(object Source, EventArgs e)
+        {
+            //Response.Redirect("Login.aspx");
+            //displayPopUpMessage("Barracks");
+            setPanelTitle("Barracks");
+            setComponentValue("levelBadge", "1");
+            setComponentValue("costBadge", "200");
+            setComponentVisibility("maxResourceGroup", false);
+            setComponentVisibility("townPopulationGroup", false);
+            setComponentVisibility("productionGroup", false);
+            setComponentVisibility("unitLimitGroup", true);
+            setComponentVisibility("unitCostGroup", true);
+            buildingControl.Visible = true;
+        }
+        protected void InfoIron_OnClick(object Source, EventArgs e)
+        {
+            //Response.Redirect("Login.aspx");
+            //displayPopUpMessage("Iron");
+            setPanelTitle("Iron");
+            setComponentValue("levelBadge", "1");
+            setComponentValue("costBadge", "250");
+            setComponentVisibility("maxResourceGroup", false);
+            setComponentVisibility("townPopulationGroup", false);
+            setComponentVisibility("productionGroup", true);
+            setComponentVisibility("unitLimitGroup", false);
+            setComponentVisibility("unitCostGroup", false);
+            buildingControl.Visible = true;
+        }
+        protected void InfoClay_OnClick(object Source, EventArgs e)
+        {
+            //Response.Redirect("Login.aspx");
+            //displayPopUpMessage("Clay");
+            setPanelTitle("Clay");
+            setComponentValue("levelBadge", "1");
+            setComponentValue("costBadge", "300");
+            setComponentVisibility("maxResourceGroup", false);
+            setComponentVisibility("townPopulationGroup", false);
+            setComponentVisibility("productionGroup", true);
+            setComponentVisibility("unitLimitGroup", false);
+            setComponentVisibility("unitCostGroup", false);
+            buildingControl.Visible = true;
+        }
+        protected void InfoStorage_OnClick(object Source, EventArgs e)
+        {
+            //Response.Redirect("Login.aspx");
+            //displayPopUpMessage("Storage");
+            setPanelTitle("Storage");
+            setComponentValue("levelBadge", "1");
+            setComponentValue("costBadge", "350");
+            setComponentVisibility("maxResourceGroup", true);
+            setComponentVisibility("townPopulationGroup", false);
+            setComponentVisibility("productionGroup", false);
+            setComponentVisibility("unitLimitGroup", false);
+            setComponentVisibility("unitCostGroup", false);
+            buildingControl.Visible = true;
         }
 
         public void displayPopUpMessage(string message)
@@ -44,6 +117,24 @@ namespace CottageWars
             sb.Append("')};");
             sb.Append("</script>");
             ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", sb.ToString());
+        }
+
+        public void setPanelTitle(string title)
+        {
+            HtmlGenericControl panelInfo = (HtmlGenericControl)LoggedInContext.FindControl("panelTitle") as HtmlGenericControl;
+            panelInfo.InnerHtml += " - " + title;
+        }
+
+        public void setComponentValue(string compName, string value)
+        {
+            HtmlGenericControl htmlEl = (HtmlGenericControl)LoggedInContext.FindControl(compName) as HtmlGenericControl;
+            htmlEl.InnerHtml = value;
+        }
+
+        public void setComponentVisibility(string compName, bool state)
+        {
+            HtmlGenericControl htmlEl = (HtmlGenericControl)LoggedInContext.FindControl(compName) as HtmlGenericControl;
+            htmlEl.Visible = state;
         }
     }
 }

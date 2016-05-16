@@ -6,6 +6,8 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using System.Web.UI.HtmlControls;
+
 namespace CottageWars
 {
     public partial class MasterPage : System.Web.UI.MasterPage
@@ -26,7 +28,13 @@ namespace CottageWars
         private void loadResources()
         {
             conn.Open();
-           // string command = "SELECT COUNT(*) from Users where Username like '" + nameText.Text + "' AND Password like '" + passwordText.Text + "';";
+            // string command = "SELECT COUNT(*) from Users where Username like '" + nameText.Text + "' AND Password like '" + passwordText.Text + "';";
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                //HtmlGenericControl woodCurrent = (HtmlGenericControl)LoggedInContext.FindControl("woodCurrent") as HtmlGenericControl;
+                //HtmlGenericControl clayCurrent = (HtmlGenericControl)LoggedInContext.FindControl("clayCurrent") as HtmlGenericControl;
+                //HtmlGenericControl ironCurrent = (HtmlGenericControl)LoggedInContext.FindControl("ironCurrent") as HtmlGenericControl;
+            }
 
         }
     }

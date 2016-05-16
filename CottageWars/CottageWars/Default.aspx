@@ -11,19 +11,68 @@
     </div>
     <div class="jumbotron" runat="server">
       <div class="board" runat="server">
-        <div class="hex-row" runat="server">
-            <div class="hex" runat="server"><div class="left"></div><div runat="server" ID="woodH" data-toggle="popover" data-placement="left"  data-original-title="Wood" data-content="Wood is a very important resource for your town that will allow you to expand and build an army. <button onclick=&quot;document.getElementsByClassName('uniqueclass')[0].click()&quot;>Very generic button </button>" class="middle wood-img"></div><div class="right"></div></div>
-            <div class="hex even" runat="server"><div class="left"></div><div runat="server" id="townhallH" data-toggle="popover" data-placement="top" data-original-title="Townhall" data-content="The main building of your village, which dictates how many troups you can have." class="middle townhall-img"></div><div class="right"></div></div>
-            <div class="hex" runat="server"><div class="left"></div><div runat="server" id="barracksH" data-toggle="popover" data-placement="right" data-original-title="Barracks" data-content="Train troops to fight with your enemies and steal their resources." class="middle barracks-img"></div><div class="right"></div></div>
-        </div>
-        <div class="hex-row">
-            <div class="hex" runat="server"><div class="left"></div><div runat="server" id="ironH" data-toggle="popover" data-placement="left" data-original-title="Iron" data-content="Another important resource for your ascension in the fight with your enemies." class="middle iron-img"></div><div class="right"></div></div>
-            <div class="hex even" runat="server"><div class="left"></div><div runat="server" id="clayH" data-toggle="popover" data-placement="bottom" data-original-title="Clay" data-content="Without clay you can't build anything or train any troops." class="middle clay-img"></div><div class="right"></div></div>
-            <div class="hex" runat="server"><div class="left"></div><div runat="server" id="storageH" data-toggle="popover" data-placement="right" data-original-title="Storage" data-content="In order to store more resources you need to increase your storage facility." class="middle storage-img"></div><div class="right"></div></div>
-        </div>                         
+          <div class="col-lg-6">
+            <div class="hex-row" runat="server">
+                <div class="hex" runat="server"><div class="left"></div><div runat="server" ID="woodH" data-toggle="popover" data-placement="left"  data-original-title="Wood" data-content="Wood is a very important resource for your town that will allow you to expand and build an army. <button class=&quot;btn btn-default btn-sm&quot; onclick=&quot;document.getElementsByClassName('woodBtn')[0].click()&quot;>More information</button>" class="middle wood-img"></div><div class="right"></div></div>
+                <div class="hex even" runat="server"><div class="left"></div><div runat="server" id="townhallH" data-toggle="popover" data-placement="top" data-original-title="Townhall" data-content="The main building of your village, which dictates how many troups you can have. <button class=&quot;btn btn-default btn-sm&quot; onclick=&quot;document.getElementsByClassName('townhallBtn')[0].click()&quot;>More information</button>" class="middle townhall-img"></div><div class="right"></div></div>
+                <div class="hex" runat="server"><div class="left"></div><div runat="server" id="barracksH" data-toggle="popover" data-placement="right" data-original-title="Barracks" data-content="Train troops to fight with your enemies and steal their resources. <button class=&quot;btn btn-default btn-sm&quot; onclick=&quot;document.getElementsByClassName('barracksBtn')[0].click()&quot;>More information</button>" class="middle barracks-img"></div><div class="right"></div></div>
+            </div>
+            <div class="hex-row">
+                <div class="hex" runat="server"><div class="left"></div><div runat="server" id="ironH" data-toggle="popover" data-placement="left" data-original-title="Iron" data-content="Another important resource for your ascension in the fight with your enemies. <button class=&quot;btn btn-default btn-sm&quot; onclick=&quot;document.getElementsByClassName('ironBtn')[0].click()&quot;>More information</button>" class="middle iron-img"></div><div class="right"></div></div>
+                <div class="hex even" runat="server"><div class="left"></div><div runat="server" id="clayH" data-toggle="popover" data-placement="bottom" data-original-title="Clay" data-content="Without clay you can't build anything or train any troops. <button class=&quot;btn btn-default btn-sm&quot; onclick=&quot;document.getElementsByClassName('clayBtn')[0].click()&quot;>More information</button>" class="middle clay-img"></div><div class="right"></div></div>
+                <div class="hex" runat="server"><div class="left"></div><div runat="server" id="storageH" data-toggle="popover" data-placement="right" data-original-title="Storage" data-content="In order to store more resources you need to increase your storage facility. <button class=&quot;btn btn-default btn-sm&quot; onclick=&quot;document.getElementsByClassName('storageBtn')[0].click()&quot;>More information</button>" class="middle storage-img"></div><div class="right"></div></div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="panel panel-primary" ID="buildingPanel" runat="server">
+                <div class="panel-heading" ID="panelInformation" runat="server">
+                    <h3 class="panel-title" ID="panelTitle" runat="server">Building information</h3>
+                </div>
+                <div class="panel-body" runat="server">
+                    <ul class="list-group" runat="server">
+                      <li class="list-group-item" runat="server">
+                        <span class="badge" ID="levelBadge" runat="server"></span>
+                        Level
+                      </li>
+                      <li class="list-group-item" runat="server">
+                        <span class="badge" ID="costBadge" runat="server"></span>
+                        Cost
+                      </li>
+                      <li class="list-group-item" ID="productionGroup" runat="server">
+                        <span class="badge" ID="productionBadge" runat="server"></span>
+                        Production
+                      </li>
+                        <li class="list-group-item" ID="maxResourceGroup" runat="server">
+                        <span class="badge" ID="maxResource" runat="server"></span>
+                        Storage limit
+                      </li>
+                        <li class="list-group-item" ID="townPopulationGroup" runat="server">
+                        <span class="badge" ID="townPopulation" runat="server"></span>
+                        Population limit
+                      </li>
+                      </li>
+                        <li class="list-group-item" ID="unitLimitGroup" runat="server">
+                        <span class="badge" ID="unitLimit" runat="server"></span>
+                        Unit limit
+                      </li>
+                      </li>
+                        <li class="list-group-item" ID="unitCostGroup" runat="server">
+                        <span class="badge" ID="unitCost" runat="server"></span>
+                        Unit cost
+                      </li>
+                    </ul>
+                </div>
+            </div>
+        </div>                        
        </div>
     </div>
-        <asp:button class="uniqueclass" runat="server" style="display: none" OnClick="InfoWood_OnClick" />
+        <asp:button class="woodBtn" runat="server" style="display: none" OnClick="InfoWood_OnClick" />
+        <asp:button class="townhallBtn" runat="server" style="display: none" OnClick="InfoTownhall_OnClick" />
+        <asp:button class="barracksBtn" runat="server" style="display: none" OnClick="InfoBarracks_OnClick" />
+        <asp:button class="ironBtn" runat="server" style="display: none" OnClick="InfoIron_OnClick" />
+        <asp:button class="clayBtn" runat="server" style="display: none" OnClick="InfoClay_OnClick" />
+        <asp:button class="storageBtn" runat="server" style="display: none" OnClick="InfoStorage_OnClick" />
+
     </LoggedInTemplate>
     <AnonymousTemplate>
         <div class="jumbotron">
