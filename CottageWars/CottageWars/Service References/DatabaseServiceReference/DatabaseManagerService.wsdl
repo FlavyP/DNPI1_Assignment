@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="MySuperAwesomeService" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="MySuperAwesomeService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="MySuperAwesomeService">
+      <s:element name="checkForUserE">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userEmail" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkForUserEResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="checkForUserEResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkForUserUP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkForUserUPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="checkForUserUPResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="registerUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="registerUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="registerUserResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateBuilding">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="building" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateBuildingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="updateBuildingResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buildUnits">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="gladiator" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="brute" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="infatry" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buildUnitsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="buildUnitsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUnits">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUnitsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getUnitsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="checkForUserESoapIn">
+    <wsdl:part name="parameters" element="tns:checkForUserE" />
+  </wsdl:message>
+  <wsdl:message name="checkForUserESoapOut">
+    <wsdl:part name="parameters" element="tns:checkForUserEResponse" />
+  </wsdl:message>
+  <wsdl:message name="checkForUserUPSoapIn">
+    <wsdl:part name="parameters" element="tns:checkForUserUP" />
+  </wsdl:message>
+  <wsdl:message name="checkForUserUPSoapOut">
+    <wsdl:part name="parameters" element="tns:checkForUserUPResponse" />
+  </wsdl:message>
+  <wsdl:message name="registerUserSoapIn">
+    <wsdl:part name="parameters" element="tns:registerUser" />
+  </wsdl:message>
+  <wsdl:message name="registerUserSoapOut">
+    <wsdl:part name="parameters" element="tns:registerUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateBuildingSoapIn">
+    <wsdl:part name="parameters" element="tns:updateBuilding" />
+  </wsdl:message>
+  <wsdl:message name="updateBuildingSoapOut">
+    <wsdl:part name="parameters" element="tns:updateBuildingResponse" />
+  </wsdl:message>
+  <wsdl:message name="buildUnitsSoapIn">
+    <wsdl:part name="parameters" element="tns:buildUnits" />
+  </wsdl:message>
+  <wsdl:message name="buildUnitsSoapOut">
+    <wsdl:part name="parameters" element="tns:buildUnitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUnitsSoapIn">
+    <wsdl:part name="parameters" element="tns:getUnits" />
+  </wsdl:message>
+  <wsdl:message name="getUnitsSoapOut">
+    <wsdl:part name="parameters" element="tns:getUnitsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DatabaseManagerServiceSoap">
+    <wsdl:operation name="checkForUserE">
+      <wsdl:input message="tns:checkForUserESoapIn" />
+      <wsdl:output message="tns:checkForUserESoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="checkForUserUP">
+      <wsdl:input message="tns:checkForUserUPSoapIn" />
+      <wsdl:output message="tns:checkForUserUPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="registerUser">
+      <wsdl:input message="tns:registerUserSoapIn" />
+      <wsdl:output message="tns:registerUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateBuilding">
+      <wsdl:input message="tns:updateBuildingSoapIn" />
+      <wsdl:output message="tns:updateBuildingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="buildUnits">
+      <wsdl:input message="tns:buildUnitsSoapIn" />
+      <wsdl:output message="tns:buildUnitsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUnits">
+      <wsdl:input message="tns:getUnitsSoapIn" />
+      <wsdl:output message="tns:getUnitsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DatabaseManagerServiceSoap" type="tns:DatabaseManagerServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="checkForUserE">
+      <soap:operation soapAction="MySuperAwesomeService/checkForUserE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkForUserUP">
+      <soap:operation soapAction="MySuperAwesomeService/checkForUserUP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerUser">
+      <soap:operation soapAction="MySuperAwesomeService/registerUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateBuilding">
+      <soap:operation soapAction="MySuperAwesomeService/updateBuilding" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buildUnits">
+      <soap:operation soapAction="MySuperAwesomeService/buildUnits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUnits">
+      <soap:operation soapAction="MySuperAwesomeService/getUnits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DatabaseManagerServiceSoap12" type="tns:DatabaseManagerServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="checkForUserE">
+      <soap12:operation soapAction="MySuperAwesomeService/checkForUserE" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkForUserUP">
+      <soap12:operation soapAction="MySuperAwesomeService/checkForUserUP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerUser">
+      <soap12:operation soapAction="MySuperAwesomeService/registerUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateBuilding">
+      <soap12:operation soapAction="MySuperAwesomeService/updateBuilding" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buildUnits">
+      <soap12:operation soapAction="MySuperAwesomeService/buildUnits" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUnits">
+      <soap12:operation soapAction="MySuperAwesomeService/getUnits" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DatabaseManagerService">
+    <wsdl:port name="DatabaseManagerServiceSoap" binding="tns:DatabaseManagerServiceSoap">
+      <soap:address location="http://localhost:27863/DatabaseManagerService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DatabaseManagerServiceSoap12" binding="tns:DatabaseManagerServiceSoap12">
+      <soap12:address location="http://localhost:27863/DatabaseManagerService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
