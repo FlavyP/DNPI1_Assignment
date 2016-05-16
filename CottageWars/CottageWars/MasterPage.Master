@@ -71,16 +71,16 @@
         </nav>
 
         <div class="container" runat="server">
-            <asp:LoginView runat="server" ViewStateMode="Disabled">
+            <asp:LoginView ID="ResourceView" runat="server" ViewStateMode="Disabled">
                 <LoggedInTemplate>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="panel panel-info">
+                    <div class="row" runat="server">
+                        <div class="col-lg-12" runat="server">
+                            <div class="panel panel-info" runat="server">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">Resource bar</h3>
                                 </div>
-                                <div class="panel-body">
-                                   <asp:Label ID="woodLabel" runat="server" style="color: red" Text="Wood: " ></asp:Label> <asp:Label ID="woodCurrent" runat="server">0</asp:Label>
+                                <div class="panel-body" runat="server">
+                                   <asp:Label ID="woodLabel" runat="server" style="color: red" Text="Wood: " ></asp:Label> <asp:Label ID="woodCurrent" runat="server" />
                                     <asp:Label ID="clay" runat="server" style="color: red"> Clay: </asp:Label> <asp:Label ID="clayCurrent" runat="server">0</asp:Label>
                                     <asp:Label ID="iron" runat="server" style="color: red"> Iron: </asp:Label> <asp:Label ID="ironCurrent" runat="server">0</asp:Label>
                                 </div>

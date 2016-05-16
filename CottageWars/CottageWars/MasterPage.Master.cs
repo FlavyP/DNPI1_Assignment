@@ -31,7 +31,8 @@ namespace CottageWars
             // string command = "SELECT COUNT(*) from Users where Username like '" + nameText.Text + "' AND Password like '" + passwordText.Text + "';";
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                //HtmlGenericControl woodCurrent = (HtmlGenericControl)LoggedInContext.FindControl("woodCurrent") as HtmlGenericControl;
+                Label  woodCurrent = (Label)ResourceView.FindControl("woodCurrent") as Label;
+                woodCurrent.Text = "Insert something here, Flavy.";
                 //HtmlGenericControl clayCurrent = (HtmlGenericControl)LoggedInContext.FindControl("clayCurrent") as HtmlGenericControl;
                 //HtmlGenericControl ironCurrent = (HtmlGenericControl)LoggedInContext.FindControl("ironCurrent") as HtmlGenericControl;
             }
