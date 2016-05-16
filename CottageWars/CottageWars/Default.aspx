@@ -60,15 +60,17 @@
                         <span class="badge" ID="unitCost" runat="server"></span>
                         Unit cost
                       </li>
-                    </ul>
-                    <div class="row" runat="server">
-                        <button class="btn btn-primary" ID="upgradeBuildingBtn" runat="server">Upgrade building</button>
-                        <div class="btn-toolbar" runat="server">
-                            <button class="btn btn-primary" ID="trainInfantryBtn" runat="server">Train infantry</button>
-                            <button class="btn btn-primary" ID="trainGladiatorBtn" runat="server">Train gladiator</button>
-                            <button class="btn btn-primary" ID="trainBruteBtn" runat="server">Train brute</button>
+                    
+                    <div class="text-center" runat="server">
+                        <button class="btn btn-primary" ID="upgradeBuildingBtn" runat="server" style="margin-top: 5px;">Upgrade building</button>
+                        <div class=" text-center" style="margin-top: 5px;" runat="server">
+                            <button class="btn btn-primary" ID="trainInfantryBtn" runat="server">1</button>
+                            <button class="btn btn-primary" ID="trainGladiatorBtn" runat="server">1</button>
+                            <button class="btn btn-primary" ID="trainBruteBtn" runat="server">1</button>
                         </div>
+
                     </div>
+                 </ul>
                 </div>
             </div>
         </div>                        
