@@ -9,7 +9,16 @@
 //------------------------------------------------------------------------------
 
 namespace CottageWars.DatabaseServiceReference {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArrayOfShort", Namespace="MySuperAwesomeService", ItemName="short")]
+    [System.SerializableAttribute()]
+    public class ArrayOfShort : System.Collections.Generic.List<short> {
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="MySuperAwesomeService", ConfigurationName="DatabaseServiceReference.DatabaseManagerServiceSoap")]
@@ -56,6 +65,13 @@ namespace CottageWars.DatabaseServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="MySuperAwesomeService/getUnits", ReplyAction="*")]
         System.Threading.Tasks.Task<CottageWars.DatabaseServiceReference.getUnitsResponse> getUnitsAsync(CottageWars.DatabaseServiceReference.getUnitsRequest request);
+        
+        // CODEGEN: Generating message contract since element name Username from namespace MySuperAwesomeService is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="MySuperAwesomeService/getResources", ReplyAction="*")]
+        CottageWars.DatabaseServiceReference.getResourcesResponse getResources(CottageWars.DatabaseServiceReference.getResourcesRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="MySuperAwesomeService/getResources", ReplyAction="*")]
+        System.Threading.Tasks.Task<CottageWars.DatabaseServiceReference.getResourcesResponse> getResourcesAsync(CottageWars.DatabaseServiceReference.getResourcesRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -483,14 +499,82 @@ namespace CottageWars.DatabaseServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Namespace="MySuperAwesomeService")]
     public partial class getUnitsResponseBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool getUnitsResult;
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public CottageWars.DatabaseServiceReference.ArrayOfShort getUnitsResult;
         
         public getUnitsResponseBody() {
         }
         
-        public getUnitsResponseBody(bool getUnitsResult) {
+        public getUnitsResponseBody(CottageWars.DatabaseServiceReference.ArrayOfShort getUnitsResult) {
             this.getUnitsResult = getUnitsResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getResourcesRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getResources", Namespace="MySuperAwesomeService", Order=0)]
+        public CottageWars.DatabaseServiceReference.getResourcesRequestBody Body;
+        
+        public getResourcesRequest() {
+        }
+        
+        public getResourcesRequest(CottageWars.DatabaseServiceReference.getResourcesRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="MySuperAwesomeService")]
+    public partial class getResourcesRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string Username;
+        
+        public getResourcesRequestBody() {
+        }
+        
+        public getResourcesRequestBody(string Username) {
+            this.Username = Username;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getResourcesResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getResourcesResponse", Namespace="MySuperAwesomeService", Order=0)]
+        public CottageWars.DatabaseServiceReference.getResourcesResponseBody Body;
+        
+        public getResourcesResponse() {
+        }
+        
+        public getResourcesResponse(CottageWars.DatabaseServiceReference.getResourcesResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="MySuperAwesomeService")]
+    public partial class getResourcesResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public CottageWars.DatabaseServiceReference.ArrayOfShort getResourcesResult;
+        
+        public getResourcesResponseBody() {
+        }
+        
+        public getResourcesResponseBody(CottageWars.DatabaseServiceReference.ArrayOfShort getResourcesResult) {
+            this.getResourcesResult = getResourcesResult;
         }
     }
     
@@ -665,7 +749,7 @@ namespace CottageWars.DatabaseServiceReference {
             return base.Channel.getUnits(request);
         }
         
-        public bool getUnits(string Username) {
+        public CottageWars.DatabaseServiceReference.ArrayOfShort getUnits(string Username) {
             CottageWars.DatabaseServiceReference.getUnitsRequest inValue = new CottageWars.DatabaseServiceReference.getUnitsRequest();
             inValue.Body = new CottageWars.DatabaseServiceReference.getUnitsRequestBody();
             inValue.Body.Username = Username;
@@ -683,6 +767,31 @@ namespace CottageWars.DatabaseServiceReference {
             inValue.Body = new CottageWars.DatabaseServiceReference.getUnitsRequestBody();
             inValue.Body.Username = Username;
             return ((CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap)(this)).getUnitsAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        CottageWars.DatabaseServiceReference.getResourcesResponse CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap.getResources(CottageWars.DatabaseServiceReference.getResourcesRequest request) {
+            return base.Channel.getResources(request);
+        }
+        
+        public CottageWars.DatabaseServiceReference.ArrayOfShort getResources(string Username) {
+            CottageWars.DatabaseServiceReference.getResourcesRequest inValue = new CottageWars.DatabaseServiceReference.getResourcesRequest();
+            inValue.Body = new CottageWars.DatabaseServiceReference.getResourcesRequestBody();
+            inValue.Body.Username = Username;
+            CottageWars.DatabaseServiceReference.getResourcesResponse retVal = ((CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap)(this)).getResources(inValue);
+            return retVal.Body.getResourcesResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<CottageWars.DatabaseServiceReference.getResourcesResponse> CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap.getResourcesAsync(CottageWars.DatabaseServiceReference.getResourcesRequest request) {
+            return base.Channel.getResourcesAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<CottageWars.DatabaseServiceReference.getResourcesResponse> getResourcesAsync(string Username) {
+            CottageWars.DatabaseServiceReference.getResourcesRequest inValue = new CottageWars.DatabaseServiceReference.getResourcesRequest();
+            inValue.Body = new CottageWars.DatabaseServiceReference.getResourcesRequestBody();
+            inValue.Body.Username = Username;
+            return ((CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap)(this)).getResourcesAsync(inValue);
         }
     }
 }

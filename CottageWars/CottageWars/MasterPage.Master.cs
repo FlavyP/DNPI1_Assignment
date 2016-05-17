@@ -15,6 +15,7 @@ namespace CottageWars
         private string connectionString;
         private SqlConnection conn;
         private SqlCommand cmd;
+        private string user;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,10 +28,13 @@ namespace CottageWars
         }
         private void loadResources()
         {
-            conn.Open();
             // string command = "SELECT COUNT(*) from Users where Username like '" + nameText.Text + "' AND Password like '" + passwordText.Text + "';";
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
+                user = HttpContext.Current.User.Identity.Name;
+                DatabaseServiceReference.DatabaseManagerServiceSoapClient service = new DatabaseServiceReference.DatabaseManagerServiceSoapClient();
+                var values = service.getResources(user);
+                Int16[] arrayValues = values.ToArray();
                 Label  woodCurrentLabel = (Label)ResourceView.FindControl("woodCurrentLabel") as Label;
                 Label clayCurrentLabel = (Label)ResourceView.FindControl("clayCurrentLabel") as Label;
                 Label ironCurrentLabel = (Label)ResourceView.FindControl("ironCurrentLabel") as Label;
@@ -38,12 +42,16 @@ namespace CottageWars
                 Label bruteCurrentLabel = (Label)ResourceView.FindControl("bruteCurrentLabel") as Label;
                 Label gladiatorCurrentLabel = (Label)ResourceView.FindControl("gladiatorCurrentLabel") as Label;
 
-                woodCurrentLabel.Text = "Insert something here, Flavy.";
-                clayCurrentLabel.Text = "1";
-                ironCurrentLabel.Text = "2";
-                infantryCurrentLabel.Text = "3";
-                bruteCurrentLabel.Text = "4";
-                gladiatorCurrentLabel.Text = "5";
+                clayCurrentLabel.Text = "" + arrayValues[0];
+                woodCurrentLabel.Text = "" + arrayValues[1];
+                ironCurrentLabel.Text = "" + arrayValues[2];
+                gladiatorCurrentLabel.Text = "" + user;
+
+                values = service.getUnits(user);
+                arrayValues = values.ToArray();
+                bruteCurrentLabel.Text = "" + arrayValues[0];
+                infantryCurrentLabel.Text = "" + arrayValues[1];
+                gladiatorCurrentLabel.Text = "" + arrayValues[2];
 
             }
 

@@ -89,7 +89,26 @@
       <s:element name="getUnitsResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="getUnitsResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="getUnitsResult" type="tns:ArrayOfShort" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfShort">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="short" type="s:short" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getResources">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getResourcesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getResourcesResult" type="tns:ArrayOfShort" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -131,6 +150,12 @@
   <wsdl:message name="getUnitsSoapOut">
     <wsdl:part name="parameters" element="tns:getUnitsResponse" />
   </wsdl:message>
+  <wsdl:message name="getResourcesSoapIn">
+    <wsdl:part name="parameters" element="tns:getResources" />
+  </wsdl:message>
+  <wsdl:message name="getResourcesSoapOut">
+    <wsdl:part name="parameters" element="tns:getResourcesResponse" />
+  </wsdl:message>
   <wsdl:portType name="DatabaseManagerServiceSoap">
     <wsdl:operation name="checkForUserE">
       <wsdl:input message="tns:checkForUserESoapIn" />
@@ -155,6 +180,10 @@
     <wsdl:operation name="getUnits">
       <wsdl:input message="tns:getUnitsSoapIn" />
       <wsdl:output message="tns:getUnitsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getResources">
+      <wsdl:input message="tns:getResourcesSoapIn" />
+      <wsdl:output message="tns:getResourcesSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="DatabaseManagerServiceSoap" type="tns:DatabaseManagerServiceSoap">
@@ -213,6 +242,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getResources">
+      <soap:operation soapAction="MySuperAwesomeService/getResources" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="DatabaseManagerServiceSoap12" type="tns:DatabaseManagerServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -263,6 +301,15 @@
     </wsdl:operation>
     <wsdl:operation name="getUnits">
       <soap12:operation soapAction="MySuperAwesomeService/getUnits" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResources">
+      <soap12:operation soapAction="MySuperAwesomeService/getResources" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
