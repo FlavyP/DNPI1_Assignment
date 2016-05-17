@@ -43,21 +43,21 @@
                         Production
                       </li>
                         <li class="list-group-item" ID="maxResourceGroup" runat="server">
-                        <span class="badge" ID="maxResource" runat="server"></span>
+                        <span class="badge" ID="maxResourceBadge" runat="server"></span>
                         Storage limit
                       </li>
                         <li class="list-group-item" ID="townPopulationGroup" runat="server">
-                        <span class="badge" ID="townPopulation" runat="server"></span>
+                        <span class="badge" ID="townPopulationBadge" runat="server"></span>
                         Population limit
                       </li>
                       </li>
                         <li class="list-group-item" ID="unitLimitGroup" runat="server">
-                        <span class="badge" ID="unitLimit" runat="server"></span>
+                        <span class="badge" ID="unitLimitBadge" runat="server"></span>
                         Unit limit
                       </li>
                       </li>
                         <li class="list-group-item" ID="unitCostGroup" runat="server">
-                        <span class="badge" ID="unitCost" runat="server"></span>
+                        <span class="badge" ID="unitCostBadge" runat="server"></span>
                         Unit cost
                       </li>
                     
