@@ -31,10 +31,20 @@ namespace CottageWars
             // string command = "SELECT COUNT(*) from Users where Username like '" + nameText.Text + "' AND Password like '" + passwordText.Text + "';";
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                Label  woodCurrent = (Label)ResourceView.FindControl("woodCurrent") as Label;
-                woodCurrent.Text = "Insert something here, Flavy.";
-                //HtmlGenericControl clayCurrent = (HtmlGenericControl)LoggedInContext.FindControl("clayCurrent") as HtmlGenericControl;
-                //HtmlGenericControl ironCurrent = (HtmlGenericControl)LoggedInContext.FindControl("ironCurrent") as HtmlGenericControl;
+                Label  woodCurrentLabel = (Label)ResourceView.FindControl("woodCurrentLabel") as Label;
+                Label clayCurrentLabel = (Label)ResourceView.FindControl("clayCurrentLabel") as Label;
+                Label ironCurrentLabel = (Label)ResourceView.FindControl("ironCurrentLabel") as Label;
+                Label infantryCurrentLabel = (Label)ResourceView.FindControl("infantryCurrentLabel") as Label;
+                Label bruteCurrentLabel = (Label)ResourceView.FindControl("bruteCurrentLabel") as Label;
+                Label gladiatorCurrentLabel = (Label)ResourceView.FindControl("gladiatorCurrentLabel") as Label;
+
+                woodCurrentLabel.Text = "Insert something here, Flavy.";
+                clayCurrentLabel.Text = "1";
+                ironCurrentLabel.Text = "2";
+                infantryCurrentLabel.Text = "3";
+                bruteCurrentLabel.Text = "4";
+                gladiatorCurrentLabel.Text = "5";
+
             }
 
         }

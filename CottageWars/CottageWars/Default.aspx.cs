@@ -29,6 +29,7 @@ namespace CottageWars
             setPanelTitle("Wood");
             setComponentValue("levelBadge", "1");
             setComponentValue("costBadge", "100");
+            setComponentValue("productionBadge", "100");
             setComponentVisibility("maxResourceGroup", false);
             setComponentVisibility("townPopulationGroup", false);
             setComponentVisibility("productionGroup", true);
@@ -44,6 +45,8 @@ namespace CottageWars
             setPanelTitle("Townhall");
             setComponentValue("levelBadge", "1");
             setComponentValue("costBadge", "150");
+            setComponentValue("productionBadge", "100");
+            setComponentValue("townPopulationBadge", "100");
             setComponentVisibility("maxResourceGroup", false);
             setComponentVisibility("townPopulationGroup", true);
             setComponentVisibility("productionGroup", true);
@@ -59,6 +62,8 @@ namespace CottageWars
             setPanelTitle("Barracks");
             setComponentValue("levelBadge", "1");
             setComponentValue("costBadge", "200");
+            setComponentValue("unitLimitBadge", "200");
+            setComponentValue("unitCostBadge", "200");
             setComponentVisibility("maxResourceGroup", false);
             setComponentVisibility("townPopulationGroup", false);
             setComponentVisibility("productionGroup", false);
@@ -73,6 +78,7 @@ namespace CottageWars
             setPanelTitle("Iron");
             setComponentValue("levelBadge", "1");
             setComponentValue("costBadge", "250");
+            setComponentValue("productionBadge", "100");
             setComponentVisibility("maxResourceGroup", false);
             setComponentVisibility("townPopulationGroup", false);
             setComponentVisibility("productionGroup", true);
@@ -88,6 +94,7 @@ namespace CottageWars
             setPanelTitle("Clay");
             setComponentValue("levelBadge", "1");
             setComponentValue("costBadge", "300");
+            setComponentValue("productionBadge", "100");
             setComponentVisibility("maxResourceGroup", false);
             setComponentVisibility("townPopulationGroup", false);
             setComponentVisibility("productionGroup", true);
@@ -103,6 +110,7 @@ namespace CottageWars
             setPanelTitle("Storage");
             setComponentValue("levelBadge", "1");
             setComponentValue("costBadge", "350");
+            setComponentValue("maxResourceBadge", "0");
             setComponentVisibility("maxResourceGroup", true);
             setComponentVisibility("townPopulationGroup", false);
             setComponentVisibility("productionGroup", false);

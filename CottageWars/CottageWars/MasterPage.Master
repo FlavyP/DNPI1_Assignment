@@ -75,14 +75,17 @@
                 <LoggedInTemplate>
                     <div class="row" runat="server">
                         <div class="col-lg-12" runat="server">
-                            <div class="panel panel-info" runat="server">
+                            <div class="panel panel-info text-center" runat="server">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Resource bar</h3>
+                                    <h3 class="panel-title">Information bar</h3>
                                 </div>
-                                <div class="panel-body" runat="server">
-                                   <asp:Label ID="woodLabel" runat="server" style="color: red" Text="Wood: " ></asp:Label> <asp:Label ID="woodCurrent" runat="server" />
-                                    <asp:Label ID="clay" runat="server" style="color: red"> Clay: </asp:Label> <asp:Label ID="clayCurrent" runat="server">0</asp:Label>
-                                    <asp:Label ID="iron" runat="server" style="color: red"> Iron: </asp:Label> <asp:Label ID="ironCurrent" runat="server">0</asp:Label>
+                                <div class="panel-body text-center" runat="server">
+                                   <asp:Label ID="woodLabel" runat="server" style="color: red" Text="Wood: " ></asp:Label> <asp:Label ID="woodCurrentLabel" runat="server" />
+                                    <asp:Label ID="clayLabel" runat="server" style="color: red"> Clay: </asp:Label> <asp:Label ID="clayCurrentLabel" runat="server">0</asp:Label>
+                                    <asp:Label ID="ironLabel" runat="server" style="color: red"> Iron: </asp:Label> <asp:Label ID="ironCurrentLabel" runat="server">0</asp:Label>
+                                    <asp:Label ID="infantryLabel" runat="server" style="color: red"> Infantry: </asp:Label> <asp:Label ID="infantryCurrentLabel" runat="server">0</asp:Label>
+                                    <asp:Label ID="bruteLabel" runat="server" style="color: red"> Brute: </asp:Label> <asp:Label ID="bruteCurrentLabel" runat="server">0</asp:Label>
+                                    <asp:Label ID="gladiatorLabel" runat="server" style="color: red"> Gladiator: </asp:Label> <asp:Label ID="gladiatorCurrentLabel" runat="server">0</asp:Label>
                                 </div>
                             </div>
                         </div>
