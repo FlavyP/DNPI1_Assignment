@@ -112,5 +112,26 @@ namespace CottageWars
             conn.Close();
             return false;
         }
+        [WebMethod]
+        public int[] getResources(string Username)
+        {
+            int[] buffer = new int[3];
+            conn.Open();
+            String command = "Select Building_Id FROM Users where Username ='" + Username + "'";
+            cmd = new SqlCommand(command, conn);
+            int count = (int)cmd.ExecuteScalar();
+             command = "Select clayAmount FROM Buildings where id ='" + count + "'";
+            cmd = new SqlCommand(command, conn);
+            buffer[0] = (int)cmd.ExecuteScalar();
+            command = "Select woodAmount FROM Buildings where id ='" + count + "'";
+            cmd = new SqlCommand(command, conn);
+            buffer[1] = (int)cmd.ExecuteScalar();
+            command = "Select ironAmount FROM Buildings where id ='" + count + "'";
+            cmd = new SqlCommand(command, conn);
+            buffer[2] = (int)cmd.ExecuteScalar();
+            conn.Close();
+            return buffer;
+        }
+
     }
 }

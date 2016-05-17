@@ -25,7 +25,7 @@ namespace CottageWars
         protected void Button1_Click(object sender, EventArgs e)
         {
             DatabaseServiceReference.DatabaseManagerServiceSoapClient service = new DatabaseServiceReference.DatabaseManagerServiceSoapClient();
-           
+
             if (service.checkForUserUP(nameText.Text, passwordText.Text))
             { 
                 FormsAuthentication.RedirectFromLoginPage(nameText.Text, false);
