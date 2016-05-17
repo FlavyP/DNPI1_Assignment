@@ -106,29 +106,42 @@ namespace CottageWars
             return false;
         }
         [WebMethod]
-        public bool getUnits(string Username)
+        public Int16[] getUnits(string Username)
         {
+            Int16[] buffer = new Int16[3];
             conn.Open();
+            String command = "Select Unit_Id FROM Users where Username ='" + Username + "'";
+            cmd = new SqlCommand(command, conn);
+            Int32 count = (Int32)cmd.ExecuteScalar();
+            command = "Select Brute FROM Units where id ='" + count + "'";
+            cmd = new SqlCommand(command, conn);
+            buffer[0] = (Int16)cmd.ExecuteScalar();
+            command = "Select Infatry FROM Units where id ='" + count + "'";
+            cmd = new SqlCommand(command, conn);
+            buffer[1] = (Int16)cmd.ExecuteScalar();
+            command = "Select Gladiator FROM Units where id ='" + count + "'";
+            cmd = new SqlCommand(command, conn);
+            buffer[2] = (Int16)cmd.ExecuteScalar();
             conn.Close();
-            return false;
+            return buffer;
         }
         [WebMethod]
-        public int[] getResources(string Username)
+        public Int16[] getResources(string Username)
         {
-            int[] buffer = new int[3];
+            Int16[] buffer = new Int16[3];
             conn.Open();
             String command = "Select Building_Id FROM Users where Username ='" + Username + "'";
             cmd = new SqlCommand(command, conn);
-            int count = (int)cmd.ExecuteScalar();
+            Int32 count = (Int32)cmd.ExecuteScalar();
              command = "Select clayAmount FROM Buildings where id ='" + count + "'";
             cmd = new SqlCommand(command, conn);
-            buffer[0] = (int)cmd.ExecuteScalar();
+            buffer[0] = (Int16)cmd.ExecuteScalar();
             command = "Select woodAmount FROM Buildings where id ='" + count + "'";
             cmd = new SqlCommand(command, conn);
-            buffer[1] = (int)cmd.ExecuteScalar();
+            buffer[1] = (Int16)cmd.ExecuteScalar();
             command = "Select ironAmount FROM Buildings where id ='" + count + "'";
             cmd = new SqlCommand(command, conn);
-            buffer[2] = (int)cmd.ExecuteScalar();
+            buffer[2] = (Int16)cmd.ExecuteScalar();
             conn.Close();
             return buffer;
         }
