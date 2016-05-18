@@ -18,14 +18,13 @@ namespace CottageWars
             {
                 buildingControl = (HtmlControl)LoggedInContext.FindControl("buildingPanel") as HtmlControl;
                 buildingControl.Visible = false;
-                //control.Attributes["data-original-title"] = "this is a dynamic tooltip";
+                
             }
         }
 
         protected void InfoWood_OnClick(object Source, EventArgs e)
         {
-            //Response.Redirect("Login.aspx");
-            //displayPopUpMessage("Wood");
+           
             setPanelTitle("Wood");
             setComponentValue("levelBadge", "1");
             setComponentValue("costBadge", "100");
@@ -40,8 +39,7 @@ namespace CottageWars
         }
         protected void InfoTownhall_OnClick(object Source, EventArgs e)
         {
-            //Response.Redirect("Login.aspx");
-            //displayPopUpMessage("Townhall");
+           
             setPanelTitle("Townhall");
             setComponentValue("levelBadge", "1");
             setComponentValue("costBadge", "150");
@@ -57,8 +55,7 @@ namespace CottageWars
         }
         protected void InfoBarracks_OnClick(object Source, EventArgs e)
         {
-            //Response.Redirect("Login.aspx");
-            //displayPopUpMessage("Barracks");
+           
             setPanelTitle("Barracks");
             setComponentValue("levelBadge", "1");
             setComponentValue("costBadge", "200");
@@ -73,8 +70,7 @@ namespace CottageWars
         }
         protected void InfoIron_OnClick(object Source, EventArgs e)
         {
-            //Response.Redirect("Login.aspx");
-            //displayPopUpMessage("Iron");
+            
             setPanelTitle("Iron");
             setComponentValue("levelBadge", "1");
             setComponentValue("costBadge", "250");
@@ -89,8 +85,7 @@ namespace CottageWars
         }
         protected void InfoClay_OnClick(object Source, EventArgs e)
         {
-            //Response.Redirect("Login.aspx");
-            //displayPopUpMessage("Clay");
+         
             setPanelTitle("Clay");
             setComponentValue("levelBadge", "1");
             setComponentValue("costBadge", "300");
@@ -105,8 +100,7 @@ namespace CottageWars
         }
         protected void InfoStorage_OnClick(object Source, EventArgs e)
         {
-            //Response.Redirect("Login.aspx");
-            //displayPopUpMessage("Storage");
+           
             setPanelTitle("Storage");
             setComponentValue("levelBadge", "1");
             setComponentValue("costBadge", "350");
