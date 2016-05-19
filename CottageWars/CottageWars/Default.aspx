@@ -5,11 +5,6 @@
     <LoggedInTemplate runat="server">
     <div id="divCenter" runat="server" class="divhead"></div>
     <div class="jumbotron" runat="server">
-        <!--Remove --user-- when session stuff are done. -->
-        <h1><%Response.Write(HttpContext.Current.User.Identity.Name); %>'s Village</h1>
-        <p class="lead">Maybe reduce the height of this one or make a table insight it with building spaces of the city.</p>
-    </div>
-    <div class="jumbotron" runat="server">
       <div class="board" runat="server">
           <div class="col-lg-6">
             <div class="hex-row" runat="server">
@@ -62,7 +57,12 @@
                       </li>
                     
                     <div class="text-center" runat="server">
-                        <asp:button class="btn btn-primary" ID="upgradeBuildingBtn" runat="server" style="margin-top: 5px;" OnClick="UpgradeBuilding_OnClick" Text="Upgrade building"></asp:button>
+                        <asp:button class="btn btn-primary" ID="upgadeWoodBtn" runat="server" style="margin-top: 5px;" OnClick="UpgradeWood_OnClick" Text="Upgrade wood"></asp:button>
+                        <asp:button class="btn btn-primary" ID="upgradeIronBtn" runat="server" style="margin-top: 5px;" OnClick="UpgradeIron_OnClick" Text="Upgrade iron"></asp:button>
+                        <asp:button class="btn btn-primary" ID="upgradeClayBtn" runat="server" style="margin-top: 5px;" OnClick="UpgradeClay_OnClick" Text="Upgrade clay"></asp:button>
+                        <asp:button class="btn btn-primary" ID="upgradeTownhallBtn" runat="server" style="margin-top: 5px;" OnClick="UpgradeTownhall_OnClick" Text="Upgrade townhall"></asp:button>
+                        <asp:button class="btn btn-primary" ID="upgrageBarracksBtn" runat="server" style="margin-top: 5px;" OnClick="UpgradeBarracks_OnClick" Text="Upgrade barracks"></asp:button>
+                        <asp:button class="btn btn-primary" ID="upgradeStorageBtn" runat="server" style="margin-top: 5px;" OnClick="UpgradeStorage_OnClick" Text="Upgrade storage"></asp:button>    
                         <div class=" text-center" style="margin-top: 5px;" ID="trainTroopsGroup" runat="server">
                             <asp:button class="btn btn-primary" ID="trainInfantryBtn" runat="server" OnClick="TrainInfantry_OnClick" Text="Train infantry" />
                             <asp:button class="btn btn-primary" ID="trainGladiatorBtn" runat="server" OnClick="TrainGladitoare_OnClick" Text="Train gladiator" />

@@ -11,6 +11,8 @@ namespace CottageWars
     public partial class Default : System.Web.UI.Page
     {
         private HtmlControl buildingControl;
+        private DatabaseServiceReference.DatabaseManagerServiceSoapClient webService;
+        private string username;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,99 +20,180 @@ namespace CottageWars
             {
                 buildingControl = (HtmlControl)LoggedInContext.FindControl("buildingPanel") as HtmlControl;
                 buildingControl.Visible = false;
-                
+                webService = new DatabaseServiceReference.DatabaseManagerServiceSoapClient();
+                username = HttpContext.Current.User.Identity.Name;
             }
         }
 
         protected void InfoWood_OnClick(object Source, EventArgs e)
         {
-           
+            System.Data.DataTable info = new System.Data.DataTable();
+            info = webService.getBuilding(username, "Wood_Id");
+
+            System.Data.DataRow rows = info.Rows[0];
+
+            setComponentValue("levelBadge", rows["level"].ToString());
+            setComponentValue("costBadge", rows["cost"].ToString());
+            setComponentValue("productionBadge", rows["PPH"].ToString());
+
             setPanelTitle("Wood");
-            setComponentValue("levelBadge", "1");
-            setComponentValue("costBadge", "100");
-            setComponentValue("productionBadge", "100");
             setComponentVisibility("maxResourceGroup", false);
             setComponentVisibility("townPopulationGroup", false);
             setComponentVisibility("productionGroup", true);
             setComponentVisibility("unitLimitGroup", false);
             setComponentVisibility("unitCostGroup", false);
             setComponentVisibility("trainTroopsGroup", false);
+
+            setButtonVisibility("upgadeWoodBtn", true);
+            setButtonVisibility("upgradeIronBtn", false);
+            setButtonVisibility("upgradeClayBtn", false);
+            setButtonVisibility("upgradeTownhallBtn", false);
+            setButtonVisibility("upgrageBarracksBtn", false);
+            setButtonVisibility("upgradeStorageBtn", false);
+
+            /*foreach (System.Data.DataRow row in info.Rows)
+            {
+                string level = row["level"].ToString();
+                displayPopUpMessage(level);
+            }*/
+
+
             buildingControl.Visible = true;
         }
         protected void InfoTownhall_OnClick(object Source, EventArgs e)
         {
-           
+            System.Data.DataTable info = new System.Data.DataTable();
+            info = webService.getBuilding(username, "Townhall_Id");
+
+            System.Data.DataRow rows = info.Rows[0];
+
+            setComponentValue("levelBadge", rows["level"].ToString());
+            setComponentValue("costBadge", rows["cost"].ToString());
+            setComponentValue("productionBadge", rows["PPH"].ToString());
+            setComponentValue("townPopulationBadge", rows["population"].ToString());
+
             setPanelTitle("Townhall");
-            setComponentValue("levelBadge", "1");
-            setComponentValue("costBadge", "150");
-            setComponentValue("productionBadge", "100");
-            setComponentValue("townPopulationBadge", "100");
             setComponentVisibility("maxResourceGroup", false);
             setComponentVisibility("townPopulationGroup", true);
             setComponentVisibility("productionGroup", true);
             setComponentVisibility("unitLimitGroup", false);
             setComponentVisibility("unitCostGroup", false);
             setComponentVisibility("trainTroopsGroup", false);
+
+            setButtonVisibility("upgadeWoodBtn", false);
+            setButtonVisibility("upgradeIronBtn", false);
+            setButtonVisibility("upgradeClayBtn", false);
+            setButtonVisibility("upgradeTownhallBtn", true);
+            setButtonVisibility("upgrageBarracksBtn", false);
+            setButtonVisibility("upgradeStorageBtn", false);
+
             buildingControl.Visible = true;
         }
         protected void InfoBarracks_OnClick(object Source, EventArgs e)
         {
-           
+            System.Data.DataTable info = new System.Data.DataTable();
+            info = webService.getBuilding(username, "Barrack_Id");
+
+            System.Data.DataRow rows = info.Rows[0];
+
+            setComponentValue("levelBadge", rows["level"].ToString());
+            setComponentValue("costBadge", rows["cost"].ToString());
+            setComponentValue("unitLimitBadge", rows["maxUnits"].ToString());
+            setComponentValue("unitCostBadge", rows["unitCost"].ToString());
+
             setPanelTitle("Barracks");
-            setComponentValue("levelBadge", "1");
-            setComponentValue("costBadge", "200");
-            setComponentValue("unitLimitBadge", "200");
-            setComponentValue("unitCostBadge", "200");
             setComponentVisibility("maxResourceGroup", false);
             setComponentVisibility("townPopulationGroup", false);
             setComponentVisibility("productionGroup", false);
             setComponentVisibility("unitLimitGroup", true);
             setComponentVisibility("unitCostGroup", true);
+
+            setButtonVisibility("upgadeWoodBtn", false);
+            setButtonVisibility("upgradeIronBtn", false);
+            setButtonVisibility("upgradeClayBtn", false);
+            setButtonVisibility("upgradeTownhallBtn", false);
+            setButtonVisibility("upgrageBarracksBtn", true);
+            setButtonVisibility("upgradeStorageBtn", false);
             buildingControl.Visible = true;
         }
         protected void InfoIron_OnClick(object Source, EventArgs e)
         {
-            
+            System.Data.DataTable info = new System.Data.DataTable();
+            info = webService.getBuilding(username, "Iron_Id");
+
+            System.Data.DataRow rows = info.Rows[0];
+            setComponentValue("levelBadge", rows["level"].ToString());
+            setComponentValue("costBadge", rows["cost"].ToString());
+            setComponentValue("productionBadge", rows["PPH"].ToString());
+
             setPanelTitle("Iron");
-            setComponentValue("levelBadge", "1");
-            setComponentValue("costBadge", "250");
-            setComponentValue("productionBadge", "100");
             setComponentVisibility("maxResourceGroup", false);
             setComponentVisibility("townPopulationGroup", false);
             setComponentVisibility("productionGroup", true);
             setComponentVisibility("unitLimitGroup", false);
             setComponentVisibility("unitCostGroup", false);
             setComponentVisibility("trainTroopsGroup", false);
+
+            setButtonVisibility("upgadeWoodBtn", false);
+            setButtonVisibility("upgradeIronBtn", true);
+            setButtonVisibility("upgradeClayBtn", false);
+            setButtonVisibility("upgradeTownhallBtn", false);
+            setButtonVisibility("upgrageBarracksBtn", false);
+            setButtonVisibility("upgradeStorageBtn", false);
             buildingControl.Visible = true;
         }
         protected void InfoClay_OnClick(object Source, EventArgs e)
         {
-         
+            System.Data.DataTable info = new System.Data.DataTable();
+            info = webService.getBuilding(username, "Clay_Id");
+
+            System.Data.DataRow rows = info.Rows[0];
+            setComponentValue("levelBadge", rows["level"].ToString());
+            setComponentValue("costBadge", rows["cost"].ToString());
+            setComponentValue("productionBadge", rows["PPH"].ToString());
+
             setPanelTitle("Clay");
-            setComponentValue("levelBadge", "1");
-            setComponentValue("costBadge", "300");
-            setComponentValue("productionBadge", "100");
             setComponentVisibility("maxResourceGroup", false);
             setComponentVisibility("townPopulationGroup", false);
             setComponentVisibility("productionGroup", true);
             setComponentVisibility("unitLimitGroup", false);
             setComponentVisibility("unitCostGroup", false);
             setComponentVisibility("trainTroopsGroup", false);
+
+            setButtonVisibility("upgadeWoodBtn", false);
+            setButtonVisibility("upgradeIronBtn", false);
+            setButtonVisibility("upgradeClayBtn", true);
+            setButtonVisibility("upgradeTownhallBtn", false);
+            setButtonVisibility("upgrageBarracksBtn", false);
+            setButtonVisibility("upgradeStorageBtn", false);
             buildingControl.Visible = true;
         }
         protected void InfoStorage_OnClick(object Source, EventArgs e)
         {
-           
+            System.Data.DataTable info = new System.Data.DataTable();
+            info = webService.getBuilding(username, "Storage_Id");
+
+            System.Data.DataRow rows = info.Rows[0];
+
+            setComponentValue("levelBadge", rows["level"].ToString());
+            setComponentValue("costBadge", rows["cost"].ToString());
+            setComponentValue("maxResourceBadge", rows["maxResource"].ToString());
+
             setPanelTitle("Storage");
-            setComponentValue("levelBadge", "1");
-            setComponentValue("costBadge", "350");
-            setComponentValue("maxResourceBadge", "0");
+
             setComponentVisibility("maxResourceGroup", true);
             setComponentVisibility("townPopulationGroup", false);
             setComponentVisibility("productionGroup", false);
             setComponentVisibility("unitLimitGroup", false);
             setComponentVisibility("unitCostGroup", false);
             setComponentVisibility("trainTroopsGroup", false);
+
+            setButtonVisibility("upgadeWoodBtn", false);
+            setButtonVisibility("upgradeIronBtn", false);
+            setButtonVisibility("upgradeClayBtn", false);
+            setButtonVisibility("upgradeTownhallBtn", false);
+            setButtonVisibility("upgrageBarracksBtn", false);
+            setButtonVisibility("upgradeStorageBtn", true);
             buildingControl.Visible = true;
         }
 
@@ -129,9 +212,34 @@ namespace CottageWars
             displayPopUpMessage("Brute");
         }
 
-        protected void UpgradeBuilding_OnClick(object Source, EventArgs e)
+        protected void UpgradeWood_OnClick(object Source, EventArgs e)
         {
-            displayPopUpMessage("Building");
+            webService.updateBuilding(username, "Wood_Id");
+        }
+
+        protected void UpgradeIron_OnClick(object Source, EventArgs e)
+        {
+            webService.updateBuilding(username, "Iron_Id");
+        }
+
+        protected void UpgradeClay_OnClick(object Source, EventArgs e)
+        {
+            webService.updateBuilding(username, "Clay_Id");
+        }
+
+        protected void UpgradeTownhall_OnClick(object Source, EventArgs e)
+        {
+            webService.updateBuilding(username, "Townhall_Id");
+        }
+
+        protected void UpgradeBarracks_OnClick(object Source, EventArgs e)
+        {
+            webService.updateBuilding(username, "Barrack_Id");
+        }
+
+        protected void UpgradeStorage_OnClick(object Source, EventArgs e)
+        {
+            webService.updateBuilding(username, "Storage_Id");
         }
 
         public void displayPopUpMessage(string message)
@@ -149,7 +257,7 @@ namespace CottageWars
         public void setPanelTitle(string title)
         {
             HtmlGenericControl panelInfo = (HtmlGenericControl)LoggedInContext.FindControl("panelTitle") as HtmlGenericControl;
-            panelInfo.InnerHtml += " - " + title;
+            panelInfo.InnerHtml = title;
         }
 
         public void setComponentValue(string compName, string value)
@@ -161,6 +269,12 @@ namespace CottageWars
         public void setComponentVisibility(string compName, bool state)
         {
             HtmlGenericControl htmlEl = (HtmlGenericControl)LoggedInContext.FindControl(compName) as HtmlGenericControl;
+            htmlEl.Visible = state;
+        }
+
+        public void setButtonVisibility(string compName, bool state)
+        {
+            Button htmlEl = (Button)LoggedInContext.FindControl(compName) as Button;
             htmlEl.Visible = state;
         }
     }

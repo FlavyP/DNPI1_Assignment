@@ -47,38 +47,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="updateBuilding">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="building" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="updateBuildingResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="updateBuildingResult" type="s:boolean" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="buildUnits">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="gladiator" type="s:int" />
-            <s:element minOccurs="1" maxOccurs="1" name="brute" type="s:int" />
-            <s:element minOccurs="1" maxOccurs="1" name="infatry" type="s:int" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="buildUnitsResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="buildUnitsResult" type="s:boolean" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="getUnits">
         <s:complexType>
           <s:sequence>
@@ -112,6 +80,60 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="getBuilding">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="building" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getBuildingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getBuildingResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateBuilding">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="building" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateBuildingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="updateBuildingResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buildUnits">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="gladiator" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="brute" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="infatry" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buildUnitsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="buildUnitsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="checkForUserESoapIn">
@@ -132,18 +154,6 @@
   <wsdl:message name="registerUserSoapOut">
     <wsdl:part name="parameters" element="tns:registerUserResponse" />
   </wsdl:message>
-  <wsdl:message name="updateBuildingSoapIn">
-    <wsdl:part name="parameters" element="tns:updateBuilding" />
-  </wsdl:message>
-  <wsdl:message name="updateBuildingSoapOut">
-    <wsdl:part name="parameters" element="tns:updateBuildingResponse" />
-  </wsdl:message>
-  <wsdl:message name="buildUnitsSoapIn">
-    <wsdl:part name="parameters" element="tns:buildUnits" />
-  </wsdl:message>
-  <wsdl:message name="buildUnitsSoapOut">
-    <wsdl:part name="parameters" element="tns:buildUnitsResponse" />
-  </wsdl:message>
   <wsdl:message name="getUnitsSoapIn">
     <wsdl:part name="parameters" element="tns:getUnits" />
   </wsdl:message>
@@ -155,6 +165,24 @@
   </wsdl:message>
   <wsdl:message name="getResourcesSoapOut">
     <wsdl:part name="parameters" element="tns:getResourcesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getBuildingSoapIn">
+    <wsdl:part name="parameters" element="tns:getBuilding" />
+  </wsdl:message>
+  <wsdl:message name="getBuildingSoapOut">
+    <wsdl:part name="parameters" element="tns:getBuildingResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateBuildingSoapIn">
+    <wsdl:part name="parameters" element="tns:updateBuilding" />
+  </wsdl:message>
+  <wsdl:message name="updateBuildingSoapOut">
+    <wsdl:part name="parameters" element="tns:updateBuildingResponse" />
+  </wsdl:message>
+  <wsdl:message name="buildUnitsSoapIn">
+    <wsdl:part name="parameters" element="tns:buildUnits" />
+  </wsdl:message>
+  <wsdl:message name="buildUnitsSoapOut">
+    <wsdl:part name="parameters" element="tns:buildUnitsResponse" />
   </wsdl:message>
   <wsdl:portType name="DatabaseManagerServiceSoap">
     <wsdl:operation name="checkForUserE">
@@ -169,14 +197,6 @@
       <wsdl:input message="tns:registerUserSoapIn" />
       <wsdl:output message="tns:registerUserSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="updateBuilding">
-      <wsdl:input message="tns:updateBuildingSoapIn" />
-      <wsdl:output message="tns:updateBuildingSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="buildUnits">
-      <wsdl:input message="tns:buildUnitsSoapIn" />
-      <wsdl:output message="tns:buildUnitsSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="getUnits">
       <wsdl:input message="tns:getUnitsSoapIn" />
       <wsdl:output message="tns:getUnitsSoapOut" />
@@ -184,6 +204,18 @@
     <wsdl:operation name="getResources">
       <wsdl:input message="tns:getResourcesSoapIn" />
       <wsdl:output message="tns:getResourcesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getBuilding">
+      <wsdl:input message="tns:getBuildingSoapIn" />
+      <wsdl:output message="tns:getBuildingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateBuilding">
+      <wsdl:input message="tns:updateBuildingSoapIn" />
+      <wsdl:output message="tns:updateBuildingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="buildUnits">
+      <wsdl:input message="tns:buildUnitsSoapIn" />
+      <wsdl:output message="tns:buildUnitsSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="DatabaseManagerServiceSoap" type="tns:DatabaseManagerServiceSoap">
@@ -215,24 +247,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="updateBuilding">
-      <soap:operation soapAction="MySuperAwesomeService/updateBuilding" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="buildUnits">
-      <soap:operation soapAction="MySuperAwesomeService/buildUnits" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="getUnits">
       <soap:operation soapAction="MySuperAwesomeService/getUnits" style="document" />
       <wsdl:input>
@@ -244,6 +258,33 @@
     </wsdl:operation>
     <wsdl:operation name="getResources">
       <soap:operation soapAction="MySuperAwesomeService/getResources" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBuilding">
+      <soap:operation soapAction="MySuperAwesomeService/getBuilding" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateBuilding">
+      <soap:operation soapAction="MySuperAwesomeService/updateBuilding" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buildUnits">
+      <soap:operation soapAction="MySuperAwesomeService/buildUnits" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -281,24 +322,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="updateBuilding">
-      <soap12:operation soapAction="MySuperAwesomeService/updateBuilding" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="buildUnits">
-      <soap12:operation soapAction="MySuperAwesomeService/buildUnits" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="getUnits">
       <soap12:operation soapAction="MySuperAwesomeService/getUnits" style="document" />
       <wsdl:input>
@@ -310,6 +333,33 @@
     </wsdl:operation>
     <wsdl:operation name="getResources">
       <soap12:operation soapAction="MySuperAwesomeService/getResources" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBuilding">
+      <soap12:operation soapAction="MySuperAwesomeService/getBuilding" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateBuilding">
+      <soap12:operation soapAction="MySuperAwesomeService/updateBuilding" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buildUnits">
+      <soap12:operation soapAction="MySuperAwesomeService/buildUnits" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

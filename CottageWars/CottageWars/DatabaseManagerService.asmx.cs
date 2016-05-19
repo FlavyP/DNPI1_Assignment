@@ -185,13 +185,18 @@ namespace CottageWars
         {
             SqlDataAdapter DA = new SqlDataAdapter();
             DataTable dt = new DataTable();
-            Int16[] buffer = new Int16[3];
+            dt.TableName = "MyTable";
             conn.Open();
             String command = "Select Building_Id FROM Users where Username ='" + Username + "'";
             cmd = new SqlCommand(command, conn);
             Int32 count = (Int32)cmd.ExecuteScalar();
             command = "Select " + building + " from Buildings where id='" + count + "'";
+            cmd = new SqlCommand(command, conn);
             count = (Int32)cmd.ExecuteScalar();
+            command = "Select Id From Barracks where id='" + count + "'";
+            cmd = new SqlCommand(command, conn);
+            count = (Int32)cmd.ExecuteScalar();
+            
             switch (building)
             {
                 case "Barrack_Id":
@@ -256,7 +261,7 @@ namespace CottageWars
             Int32 count = (Int32)cmd.ExecuteScalar();
             command = "Select " + building + " from Buildings where id='" + count + "'";
            Int32 current = (Int32)cmd.ExecuteScalar();
-            Int16 next = (Int16)count++;
+            Int16 next = (Int16)count;
             switch (building)
             {
                 case "Barrack_Id":

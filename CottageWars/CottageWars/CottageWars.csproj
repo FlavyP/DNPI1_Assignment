@@ -146,34 +146,11 @@
     <Content Include="CottageWarsDB.edmx.diagram">
       <DependentUpon>CottageWarsDB.edmx</DependentUpon>
     </Content>
+    <Content Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="Service References\DatabaseServiceReference\CottageWars.DatabaseServiceReference.buildUnitsResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\DatabaseServiceReference\CottageWars.DatabaseServiceReference.checkForUserEResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\DatabaseServiceReference\CottageWars.DatabaseServiceReference.checkForUserUPResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\DatabaseServiceReference\CottageWars.DatabaseServiceReference.getUnitsResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\DatabaseServiceReference\CottageWars.DatabaseServiceReference.registerUserResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\DatabaseServiceReference\CottageWars.DatabaseServiceReference.updateBuildingResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\DatabaseServiceReference\CottageWars.DatabaseServiceReference.ArrayOfShort.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\DatabaseServiceReference\CottageWars.DatabaseServiceReference.getResourcesResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Service References\DatabaseServiceReference\DatabaseManagerService.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

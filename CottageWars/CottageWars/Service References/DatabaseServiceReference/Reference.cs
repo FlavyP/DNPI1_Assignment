@@ -9,573 +9,68 @@
 //------------------------------------------------------------------------------
 
 namespace CottageWars.DatabaseServiceReference {
-    using System.Runtime.Serialization;
-    using System;
+    using System.Data;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArrayOfShort", Namespace="MySuperAwesomeService", ItemName="short")]
-    [System.SerializableAttribute()]
-    public class ArrayOfShort : System.Collections.Generic.List<short> {
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="MySuperAwesomeService", ConfigurationName="DatabaseServiceReference.DatabaseManagerServiceSoap")]
     public interface DatabaseManagerServiceSoap {
         
-        // CODEGEN: Generating message contract since element name userEmail from namespace MySuperAwesomeService is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="MySuperAwesomeService/checkForUserE", ReplyAction="*")]
-        CottageWars.DatabaseServiceReference.checkForUserEResponse checkForUserE(CottageWars.DatabaseServiceReference.checkForUserERequest request);
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool checkForUserE(string userEmail);
         
         [System.ServiceModel.OperationContractAttribute(Action="MySuperAwesomeService/checkForUserE", ReplyAction="*")]
-        System.Threading.Tasks.Task<CottageWars.DatabaseServiceReference.checkForUserEResponse> checkForUserEAsync(CottageWars.DatabaseServiceReference.checkForUserERequest request);
-        
-        // CODEGEN: Generating message contract since element name username from namespace MySuperAwesomeService is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="MySuperAwesomeService/checkForUserUP", ReplyAction="*")]
-        CottageWars.DatabaseServiceReference.checkForUserUPResponse checkForUserUP(CottageWars.DatabaseServiceReference.checkForUserUPRequest request);
+        System.Threading.Tasks.Task<bool> checkForUserEAsync(string userEmail);
         
         [System.ServiceModel.OperationContractAttribute(Action="MySuperAwesomeService/checkForUserUP", ReplyAction="*")]
-        System.Threading.Tasks.Task<CottageWars.DatabaseServiceReference.checkForUserUPResponse> checkForUserUPAsync(CottageWars.DatabaseServiceReference.checkForUserUPRequest request);
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool checkForUserUP(string username, string password);
         
-        // CODEGEN: Generating message contract since element name username from namespace MySuperAwesomeService is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="MySuperAwesomeService/checkForUserUP", ReplyAction="*")]
+        System.Threading.Tasks.Task<bool> checkForUserUPAsync(string username, string password);
+        
         [System.ServiceModel.OperationContractAttribute(Action="MySuperAwesomeService/registerUser", ReplyAction="*")]
-        CottageWars.DatabaseServiceReference.registerUserResponse registerUser(CottageWars.DatabaseServiceReference.registerUserRequest request);
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool registerUser(string username, string password, string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="MySuperAwesomeService/registerUser", ReplyAction="*")]
-        System.Threading.Tasks.Task<CottageWars.DatabaseServiceReference.registerUserResponse> registerUserAsync(CottageWars.DatabaseServiceReference.registerUserRequest request);
-        
-        // CODEGEN: Generating message contract since element name username from namespace MySuperAwesomeService is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="MySuperAwesomeService/updateBuilding", ReplyAction="*")]
-        CottageWars.DatabaseServiceReference.updateBuildingResponse updateBuilding(CottageWars.DatabaseServiceReference.updateBuildingRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="MySuperAwesomeService/updateBuilding", ReplyAction="*")]
-        System.Threading.Tasks.Task<CottageWars.DatabaseServiceReference.updateBuildingResponse> updateBuildingAsync(CottageWars.DatabaseServiceReference.updateBuildingRequest request);
-        
-        // CODEGEN: Generating message contract since element name username from namespace MySuperAwesomeService is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="MySuperAwesomeService/buildUnits", ReplyAction="*")]
-        CottageWars.DatabaseServiceReference.buildUnitsResponse buildUnits(CottageWars.DatabaseServiceReference.buildUnitsRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="MySuperAwesomeService/buildUnits", ReplyAction="*")]
-        System.Threading.Tasks.Task<CottageWars.DatabaseServiceReference.buildUnitsResponse> buildUnitsAsync(CottageWars.DatabaseServiceReference.buildUnitsRequest request);
-        
-        // CODEGEN: Generating message contract since element name Username from namespace MySuperAwesomeService is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="MySuperAwesomeService/getUnits", ReplyAction="*")]
-        CottageWars.DatabaseServiceReference.getUnitsResponse getUnits(CottageWars.DatabaseServiceReference.getUnitsRequest request);
+        System.Threading.Tasks.Task<bool> registerUserAsync(string username, string password, string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="MySuperAwesomeService/getUnits", ReplyAction="*")]
-        System.Threading.Tasks.Task<CottageWars.DatabaseServiceReference.getUnitsResponse> getUnitsAsync(CottageWars.DatabaseServiceReference.getUnitsRequest request);
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        short[] getUnits(string Username);
         
-        // CODEGEN: Generating message contract since element name Username from namespace MySuperAwesomeService is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="MySuperAwesomeService/getUnits", ReplyAction="*")]
+        System.Threading.Tasks.Task<short[]> getUnitsAsync(string Username);
+        
         [System.ServiceModel.OperationContractAttribute(Action="MySuperAwesomeService/getResources", ReplyAction="*")]
-        CottageWars.DatabaseServiceReference.getResourcesResponse getResources(CottageWars.DatabaseServiceReference.getResourcesRequest request);
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        short[] getResources(string Username);
         
         [System.ServiceModel.OperationContractAttribute(Action="MySuperAwesomeService/getResources", ReplyAction="*")]
-        System.Threading.Tasks.Task<CottageWars.DatabaseServiceReference.getResourcesResponse> getResourcesAsync(CottageWars.DatabaseServiceReference.getResourcesRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class checkForUserERequest {
+        System.Threading.Tasks.Task<short[]> getResourcesAsync(string Username);
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="checkForUserE", Namespace="MySuperAwesomeService", Order=0)]
-        public CottageWars.DatabaseServiceReference.checkForUserERequestBody Body;
+        [System.ServiceModel.OperationContractAttribute(Action="MySuperAwesomeService/getBuilding", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable getBuilding(string Username, string building);
         
-        public checkForUserERequest() {
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="MySuperAwesomeService/getBuilding", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> getBuildingAsync(string Username, string building);
         
-        public checkForUserERequest(CottageWars.DatabaseServiceReference.checkForUserERequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="MySuperAwesomeService")]
-    public partial class checkForUserERequestBody {
+        [System.ServiceModel.OperationContractAttribute(Action="MySuperAwesomeService/updateBuilding", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool updateBuilding(string username, string building);
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string userEmail;
+        [System.ServiceModel.OperationContractAttribute(Action="MySuperAwesomeService/updateBuilding", ReplyAction="*")]
+        System.Threading.Tasks.Task<bool> updateBuildingAsync(string username, string building);
         
-        public checkForUserERequestBody() {
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="MySuperAwesomeService/buildUnits", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool buildUnits(string username, int gladiator, int brute, int infatry);
         
-        public checkForUserERequestBody(string userEmail) {
-            this.userEmail = userEmail;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class checkForUserEResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="checkForUserEResponse", Namespace="MySuperAwesomeService", Order=0)]
-        public CottageWars.DatabaseServiceReference.checkForUserEResponseBody Body;
-        
-        public checkForUserEResponse() {
-        }
-        
-        public checkForUserEResponse(CottageWars.DatabaseServiceReference.checkForUserEResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="MySuperAwesomeService")]
-    public partial class checkForUserEResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool checkForUserEResult;
-        
-        public checkForUserEResponseBody() {
-        }
-        
-        public checkForUserEResponseBody(bool checkForUserEResult) {
-            this.checkForUserEResult = checkForUserEResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class checkForUserUPRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="checkForUserUP", Namespace="MySuperAwesomeService", Order=0)]
-        public CottageWars.DatabaseServiceReference.checkForUserUPRequestBody Body;
-        
-        public checkForUserUPRequest() {
-        }
-        
-        public checkForUserUPRequest(CottageWars.DatabaseServiceReference.checkForUserUPRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="MySuperAwesomeService")]
-    public partial class checkForUserUPRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string username;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string password;
-        
-        public checkForUserUPRequestBody() {
-        }
-        
-        public checkForUserUPRequestBody(string username, string password) {
-            this.username = username;
-            this.password = password;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class checkForUserUPResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="checkForUserUPResponse", Namespace="MySuperAwesomeService", Order=0)]
-        public CottageWars.DatabaseServiceReference.checkForUserUPResponseBody Body;
-        
-        public checkForUserUPResponse() {
-        }
-        
-        public checkForUserUPResponse(CottageWars.DatabaseServiceReference.checkForUserUPResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="MySuperAwesomeService")]
-    public partial class checkForUserUPResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool checkForUserUPResult;
-        
-        public checkForUserUPResponseBody() {
-        }
-        
-        public checkForUserUPResponseBody(bool checkForUserUPResult) {
-            this.checkForUserUPResult = checkForUserUPResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class registerUserRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="registerUser", Namespace="MySuperAwesomeService", Order=0)]
-        public CottageWars.DatabaseServiceReference.registerUserRequestBody Body;
-        
-        public registerUserRequest() {
-        }
-        
-        public registerUserRequest(CottageWars.DatabaseServiceReference.registerUserRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="MySuperAwesomeService")]
-    public partial class registerUserRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string username;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string password;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string email;
-        
-        public registerUserRequestBody() {
-        }
-        
-        public registerUserRequestBody(string username, string password, string email) {
-            this.username = username;
-            this.password = password;
-            this.email = email;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class registerUserResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="registerUserResponse", Namespace="MySuperAwesomeService", Order=0)]
-        public CottageWars.DatabaseServiceReference.registerUserResponseBody Body;
-        
-        public registerUserResponse() {
-        }
-        
-        public registerUserResponse(CottageWars.DatabaseServiceReference.registerUserResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="MySuperAwesomeService")]
-    public partial class registerUserResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool registerUserResult;
-        
-        public registerUserResponseBody() {
-        }
-        
-        public registerUserResponseBody(bool registerUserResult) {
-            this.registerUserResult = registerUserResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class updateBuildingRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="updateBuilding", Namespace="MySuperAwesomeService", Order=0)]
-        public CottageWars.DatabaseServiceReference.updateBuildingRequestBody Body;
-        
-        public updateBuildingRequest() {
-        }
-        
-        public updateBuildingRequest(CottageWars.DatabaseServiceReference.updateBuildingRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="MySuperAwesomeService")]
-    public partial class updateBuildingRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string username;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string building;
-        
-        public updateBuildingRequestBody() {
-        }
-        
-        public updateBuildingRequestBody(string username, string building) {
-            this.username = username;
-            this.building = building;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class updateBuildingResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="updateBuildingResponse", Namespace="MySuperAwesomeService", Order=0)]
-        public CottageWars.DatabaseServiceReference.updateBuildingResponseBody Body;
-        
-        public updateBuildingResponse() {
-        }
-        
-        public updateBuildingResponse(CottageWars.DatabaseServiceReference.updateBuildingResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="MySuperAwesomeService")]
-    public partial class updateBuildingResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool updateBuildingResult;
-        
-        public updateBuildingResponseBody() {
-        }
-        
-        public updateBuildingResponseBody(bool updateBuildingResult) {
-            this.updateBuildingResult = updateBuildingResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class buildUnitsRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="buildUnits", Namespace="MySuperAwesomeService", Order=0)]
-        public CottageWars.DatabaseServiceReference.buildUnitsRequestBody Body;
-        
-        public buildUnitsRequest() {
-        }
-        
-        public buildUnitsRequest(CottageWars.DatabaseServiceReference.buildUnitsRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="MySuperAwesomeService")]
-    public partial class buildUnitsRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string username;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-        public int gladiator;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-        public int brute;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-        public int infatry;
-        
-        public buildUnitsRequestBody() {
-        }
-        
-        public buildUnitsRequestBody(string username, int gladiator, int brute, int infatry) {
-            this.username = username;
-            this.gladiator = gladiator;
-            this.brute = brute;
-            this.infatry = infatry;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class buildUnitsResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="buildUnitsResponse", Namespace="MySuperAwesomeService", Order=0)]
-        public CottageWars.DatabaseServiceReference.buildUnitsResponseBody Body;
-        
-        public buildUnitsResponse() {
-        }
-        
-        public buildUnitsResponse(CottageWars.DatabaseServiceReference.buildUnitsResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="MySuperAwesomeService")]
-    public partial class buildUnitsResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool buildUnitsResult;
-        
-        public buildUnitsResponseBody() {
-        }
-        
-        public buildUnitsResponseBody(bool buildUnitsResult) {
-            this.buildUnitsResult = buildUnitsResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class getUnitsRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getUnits", Namespace="MySuperAwesomeService", Order=0)]
-        public CottageWars.DatabaseServiceReference.getUnitsRequestBody Body;
-        
-        public getUnitsRequest() {
-        }
-        
-        public getUnitsRequest(CottageWars.DatabaseServiceReference.getUnitsRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="MySuperAwesomeService")]
-    public partial class getUnitsRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string Username;
-        
-        public getUnitsRequestBody() {
-        }
-        
-        public getUnitsRequestBody(string Username) {
-            this.Username = Username;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class getUnitsResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getUnitsResponse", Namespace="MySuperAwesomeService", Order=0)]
-        public CottageWars.DatabaseServiceReference.getUnitsResponseBody Body;
-        
-        public getUnitsResponse() {
-        }
-        
-        public getUnitsResponse(CottageWars.DatabaseServiceReference.getUnitsResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="MySuperAwesomeService")]
-    public partial class getUnitsResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public CottageWars.DatabaseServiceReference.ArrayOfShort getUnitsResult;
-        
-        public getUnitsResponseBody() {
-        }
-        
-        public getUnitsResponseBody(CottageWars.DatabaseServiceReference.ArrayOfShort getUnitsResult) {
-            this.getUnitsResult = getUnitsResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class getResourcesRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getResources", Namespace="MySuperAwesomeService", Order=0)]
-        public CottageWars.DatabaseServiceReference.getResourcesRequestBody Body;
-        
-        public getResourcesRequest() {
-        }
-        
-        public getResourcesRequest(CottageWars.DatabaseServiceReference.getResourcesRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="MySuperAwesomeService")]
-    public partial class getResourcesRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string Username;
-        
-        public getResourcesRequestBody() {
-        }
-        
-        public getResourcesRequestBody(string Username) {
-            this.Username = Username;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class getResourcesResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getResourcesResponse", Namespace="MySuperAwesomeService", Order=0)]
-        public CottageWars.DatabaseServiceReference.getResourcesResponseBody Body;
-        
-        public getResourcesResponse() {
-        }
-        
-        public getResourcesResponse(CottageWars.DatabaseServiceReference.getResourcesResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="MySuperAwesomeService")]
-    public partial class getResourcesResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public CottageWars.DatabaseServiceReference.ArrayOfShort getResourcesResult;
-        
-        public getResourcesResponseBody() {
-        }
-        
-        public getResourcesResponseBody(CottageWars.DatabaseServiceReference.ArrayOfShort getResourcesResult) {
-            this.getResourcesResult = getResourcesResult;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="MySuperAwesomeService/buildUnits", ReplyAction="*")]
+        System.Threading.Tasks.Task<bool> buildUnitsAsync(string username, int gladiator, int brute, int infatry);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -605,193 +100,68 @@ namespace CottageWars.DatabaseServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        CottageWars.DatabaseServiceReference.checkForUserEResponse CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap.checkForUserE(CottageWars.DatabaseServiceReference.checkForUserERequest request) {
-            return base.Channel.checkForUserE(request);
-        }
-        
         public bool checkForUserE(string userEmail) {
-            CottageWars.DatabaseServiceReference.checkForUserERequest inValue = new CottageWars.DatabaseServiceReference.checkForUserERequest();
-            inValue.Body = new CottageWars.DatabaseServiceReference.checkForUserERequestBody();
-            inValue.Body.userEmail = userEmail;
-            CottageWars.DatabaseServiceReference.checkForUserEResponse retVal = ((CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap)(this)).checkForUserE(inValue);
-            return retVal.Body.checkForUserEResult;
+            return base.Channel.checkForUserE(userEmail);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<CottageWars.DatabaseServiceReference.checkForUserEResponse> CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap.checkForUserEAsync(CottageWars.DatabaseServiceReference.checkForUserERequest request) {
-            return base.Channel.checkForUserEAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<CottageWars.DatabaseServiceReference.checkForUserEResponse> checkForUserEAsync(string userEmail) {
-            CottageWars.DatabaseServiceReference.checkForUserERequest inValue = new CottageWars.DatabaseServiceReference.checkForUserERequest();
-            inValue.Body = new CottageWars.DatabaseServiceReference.checkForUserERequestBody();
-            inValue.Body.userEmail = userEmail;
-            return ((CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap)(this)).checkForUserEAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        CottageWars.DatabaseServiceReference.checkForUserUPResponse CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap.checkForUserUP(CottageWars.DatabaseServiceReference.checkForUserUPRequest request) {
-            return base.Channel.checkForUserUP(request);
+        public System.Threading.Tasks.Task<bool> checkForUserEAsync(string userEmail) {
+            return base.Channel.checkForUserEAsync(userEmail);
         }
         
         public bool checkForUserUP(string username, string password) {
-            CottageWars.DatabaseServiceReference.checkForUserUPRequest inValue = new CottageWars.DatabaseServiceReference.checkForUserUPRequest();
-            inValue.Body = new CottageWars.DatabaseServiceReference.checkForUserUPRequestBody();
-            inValue.Body.username = username;
-            inValue.Body.password = password;
-            CottageWars.DatabaseServiceReference.checkForUserUPResponse retVal = ((CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap)(this)).checkForUserUP(inValue);
-            return retVal.Body.checkForUserUPResult;
+            return base.Channel.checkForUserUP(username, password);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<CottageWars.DatabaseServiceReference.checkForUserUPResponse> CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap.checkForUserUPAsync(CottageWars.DatabaseServiceReference.checkForUserUPRequest request) {
-            return base.Channel.checkForUserUPAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<CottageWars.DatabaseServiceReference.checkForUserUPResponse> checkForUserUPAsync(string username, string password) {
-            CottageWars.DatabaseServiceReference.checkForUserUPRequest inValue = new CottageWars.DatabaseServiceReference.checkForUserUPRequest();
-            inValue.Body = new CottageWars.DatabaseServiceReference.checkForUserUPRequestBody();
-            inValue.Body.username = username;
-            inValue.Body.password = password;
-            return ((CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap)(this)).checkForUserUPAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        CottageWars.DatabaseServiceReference.registerUserResponse CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap.registerUser(CottageWars.DatabaseServiceReference.registerUserRequest request) {
-            return base.Channel.registerUser(request);
+        public System.Threading.Tasks.Task<bool> checkForUserUPAsync(string username, string password) {
+            return base.Channel.checkForUserUPAsync(username, password);
         }
         
         public bool registerUser(string username, string password, string email) {
-            CottageWars.DatabaseServiceReference.registerUserRequest inValue = new CottageWars.DatabaseServiceReference.registerUserRequest();
-            inValue.Body = new CottageWars.DatabaseServiceReference.registerUserRequestBody();
-            inValue.Body.username = username;
-            inValue.Body.password = password;
-            inValue.Body.email = email;
-            CottageWars.DatabaseServiceReference.registerUserResponse retVal = ((CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap)(this)).registerUser(inValue);
-            return retVal.Body.registerUserResult;
+            return base.Channel.registerUser(username, password, email);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<CottageWars.DatabaseServiceReference.registerUserResponse> CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap.registerUserAsync(CottageWars.DatabaseServiceReference.registerUserRequest request) {
-            return base.Channel.registerUserAsync(request);
+        public System.Threading.Tasks.Task<bool> registerUserAsync(string username, string password, string email) {
+            return base.Channel.registerUserAsync(username, password, email);
         }
         
-        public System.Threading.Tasks.Task<CottageWars.DatabaseServiceReference.registerUserResponse> registerUserAsync(string username, string password, string email) {
-            CottageWars.DatabaseServiceReference.registerUserRequest inValue = new CottageWars.DatabaseServiceReference.registerUserRequest();
-            inValue.Body = new CottageWars.DatabaseServiceReference.registerUserRequestBody();
-            inValue.Body.username = username;
-            inValue.Body.password = password;
-            inValue.Body.email = email;
-            return ((CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap)(this)).registerUserAsync(inValue);
+        public short[] getUnits(string Username) {
+            return base.Channel.getUnits(Username);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        CottageWars.DatabaseServiceReference.updateBuildingResponse CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap.updateBuilding(CottageWars.DatabaseServiceReference.updateBuildingRequest request) {
-            return base.Channel.updateBuilding(request);
+        public System.Threading.Tasks.Task<short[]> getUnitsAsync(string Username) {
+            return base.Channel.getUnitsAsync(Username);
+        }
+        
+        public short[] getResources(string Username) {
+            return base.Channel.getResources(Username);
+        }
+        
+        public System.Threading.Tasks.Task<short[]> getResourcesAsync(string Username) {
+            return base.Channel.getResourcesAsync(Username);
+        }
+        
+        public System.Data.DataTable getBuilding(string Username, string building) {
+            return base.Channel.getBuilding(Username, building);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> getBuildingAsync(string Username, string building) {
+            return base.Channel.getBuildingAsync(Username, building);
         }
         
         public bool updateBuilding(string username, string building) {
-            CottageWars.DatabaseServiceReference.updateBuildingRequest inValue = new CottageWars.DatabaseServiceReference.updateBuildingRequest();
-            inValue.Body = new CottageWars.DatabaseServiceReference.updateBuildingRequestBody();
-            inValue.Body.username = username;
-            inValue.Body.building = building;
-            CottageWars.DatabaseServiceReference.updateBuildingResponse retVal = ((CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap)(this)).updateBuilding(inValue);
-            return retVal.Body.updateBuildingResult;
+            return base.Channel.updateBuilding(username, building);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<CottageWars.DatabaseServiceReference.updateBuildingResponse> CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap.updateBuildingAsync(CottageWars.DatabaseServiceReference.updateBuildingRequest request) {
-            return base.Channel.updateBuildingAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<CottageWars.DatabaseServiceReference.updateBuildingResponse> updateBuildingAsync(string username, string building) {
-            CottageWars.DatabaseServiceReference.updateBuildingRequest inValue = new CottageWars.DatabaseServiceReference.updateBuildingRequest();
-            inValue.Body = new CottageWars.DatabaseServiceReference.updateBuildingRequestBody();
-            inValue.Body.username = username;
-            inValue.Body.building = building;
-            return ((CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap)(this)).updateBuildingAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        CottageWars.DatabaseServiceReference.buildUnitsResponse CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap.buildUnits(CottageWars.DatabaseServiceReference.buildUnitsRequest request) {
-            return base.Channel.buildUnits(request);
+        public System.Threading.Tasks.Task<bool> updateBuildingAsync(string username, string building) {
+            return base.Channel.updateBuildingAsync(username, building);
         }
         
         public bool buildUnits(string username, int gladiator, int brute, int infatry) {
-            CottageWars.DatabaseServiceReference.buildUnitsRequest inValue = new CottageWars.DatabaseServiceReference.buildUnitsRequest();
-            inValue.Body = new CottageWars.DatabaseServiceReference.buildUnitsRequestBody();
-            inValue.Body.username = username;
-            inValue.Body.gladiator = gladiator;
-            inValue.Body.brute = brute;
-            inValue.Body.infatry = infatry;
-            CottageWars.DatabaseServiceReference.buildUnitsResponse retVal = ((CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap)(this)).buildUnits(inValue);
-            return retVal.Body.buildUnitsResult;
+            return base.Channel.buildUnits(username, gladiator, brute, infatry);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<CottageWars.DatabaseServiceReference.buildUnitsResponse> CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap.buildUnitsAsync(CottageWars.DatabaseServiceReference.buildUnitsRequest request) {
-            return base.Channel.buildUnitsAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<CottageWars.DatabaseServiceReference.buildUnitsResponse> buildUnitsAsync(string username, int gladiator, int brute, int infatry) {
-            CottageWars.DatabaseServiceReference.buildUnitsRequest inValue = new CottageWars.DatabaseServiceReference.buildUnitsRequest();
-            inValue.Body = new CottageWars.DatabaseServiceReference.buildUnitsRequestBody();
-            inValue.Body.username = username;
-            inValue.Body.gladiator = gladiator;
-            inValue.Body.brute = brute;
-            inValue.Body.infatry = infatry;
-            return ((CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap)(this)).buildUnitsAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        CottageWars.DatabaseServiceReference.getUnitsResponse CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap.getUnits(CottageWars.DatabaseServiceReference.getUnitsRequest request) {
-            return base.Channel.getUnits(request);
-        }
-        
-        public CottageWars.DatabaseServiceReference.ArrayOfShort getUnits(string Username) {
-            CottageWars.DatabaseServiceReference.getUnitsRequest inValue = new CottageWars.DatabaseServiceReference.getUnitsRequest();
-            inValue.Body = new CottageWars.DatabaseServiceReference.getUnitsRequestBody();
-            inValue.Body.Username = Username;
-            CottageWars.DatabaseServiceReference.getUnitsResponse retVal = ((CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap)(this)).getUnits(inValue);
-            return retVal.Body.getUnitsResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<CottageWars.DatabaseServiceReference.getUnitsResponse> CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap.getUnitsAsync(CottageWars.DatabaseServiceReference.getUnitsRequest request) {
-            return base.Channel.getUnitsAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<CottageWars.DatabaseServiceReference.getUnitsResponse> getUnitsAsync(string Username) {
-            CottageWars.DatabaseServiceReference.getUnitsRequest inValue = new CottageWars.DatabaseServiceReference.getUnitsRequest();
-            inValue.Body = new CottageWars.DatabaseServiceReference.getUnitsRequestBody();
-            inValue.Body.Username = Username;
-            return ((CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap)(this)).getUnitsAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        CottageWars.DatabaseServiceReference.getResourcesResponse CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap.getResources(CottageWars.DatabaseServiceReference.getResourcesRequest request) {
-            return base.Channel.getResources(request);
-        }
-        
-        public CottageWars.DatabaseServiceReference.ArrayOfShort getResources(string Username) {
-            CottageWars.DatabaseServiceReference.getResourcesRequest inValue = new CottageWars.DatabaseServiceReference.getResourcesRequest();
-            inValue.Body = new CottageWars.DatabaseServiceReference.getResourcesRequestBody();
-            inValue.Body.Username = Username;
-            CottageWars.DatabaseServiceReference.getResourcesResponse retVal = ((CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap)(this)).getResources(inValue);
-            return retVal.Body.getResourcesResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<CottageWars.DatabaseServiceReference.getResourcesResponse> CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap.getResourcesAsync(CottageWars.DatabaseServiceReference.getResourcesRequest request) {
-            return base.Channel.getResourcesAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<CottageWars.DatabaseServiceReference.getResourcesResponse> getResourcesAsync(string Username) {
-            CottageWars.DatabaseServiceReference.getResourcesRequest inValue = new CottageWars.DatabaseServiceReference.getResourcesRequest();
-            inValue.Body = new CottageWars.DatabaseServiceReference.getResourcesRequestBody();
-            inValue.Body.Username = Username;
-            return ((CottageWars.DatabaseServiceReference.DatabaseManagerServiceSoap)(this)).getResourcesAsync(inValue);
+        public System.Threading.Tasks.Task<bool> buildUnitsAsync(string username, int gladiator, int brute, int infatry) {
+            return base.Channel.buildUnitsAsync(username, gladiator, brute, infatry);
         }
     }
 }
