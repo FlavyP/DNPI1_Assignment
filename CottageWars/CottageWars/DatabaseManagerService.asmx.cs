@@ -121,7 +121,29 @@ namespace CottageWars
             String command = "Select Building_Id FROM Users where Username ='" + Username + "'";
             cmd = new SqlCommand(command, conn);
             Int32 count = (Int32)cmd.ExecuteScalar();
-             command = "Select clayAmount FROM Buildings where id ='" + count + "'";
+            command = "Select LastVisited From Users where Username ='" + Username + "'";
+            cmd = new SqlCommand(command, conn);
+            string last = (string)cmd.ExecuteScalar();
+            string current = DateTime.Now.ToString();
+            double differance = compareandcontrast(current, last);
+            int total = 0;
+            if (differance != -1)
+                
+            {
+                Console.Write(last + " " + current);
+                command = "Select Clay_Id from Buildings where Id='" + count + "'";
+                cmd = new SqlCommand(command, conn);
+                int level = (int)cmd.ExecuteScalar();
+                command = "Select PPH from Clays where id='" + level + "'";
+                cmd = new SqlCommand(command, conn);
+                Int16 PPH = (Int16)cmd.ExecuteScalar();
+               total = (int)differance * PPH;
+                command = "Update Users SET LastVisited ='" + DateTime.Now.ToString() + "' WHERE Username='" + Username +"'";
+                cmd = new SqlCommand(command, conn);
+                cmd.ExecuteNonQuery();
+
+            }
+            command = "Select clayAmount FROM Buildings where id ='" + count + "'";
             cmd = new SqlCommand(command, conn);
             buffer[0] = (Int16)cmd.ExecuteScalar();
             command = "Select woodAmount FROM Buildings where id ='" + count + "'";
@@ -130,8 +152,33 @@ namespace CottageWars
             command = "Select ironAmount FROM Buildings where id ='" + count + "'";
             cmd = new SqlCommand(command, conn);
             buffer[2] = (Int16)cmd.ExecuteScalar();
+            for(int i =0; i<3; i++)
+            {
+                buffer[i] +=(short) total;
+            }
+            command = "Update Buildings SET clayAmount=' " + buffer[0] + "' WHERE Id = " + count;
+            cmd = new SqlCommand(command, conn);
+            cmd.ExecuteNonQuery();
+            command = "Update Buildings SET woodAmount=' " + buffer[0] + "' WHERE Id = " + count;
+            cmd = new SqlCommand(command, conn);
+            cmd.ExecuteNonQuery();
+            command = "Update Buildings SET ironAmount= ' " + buffer[0] + "' WHERE Id = " + count;
+            cmd = new SqlCommand(command, conn);
+            cmd.ExecuteNonQuery();
             conn.Close();
             return buffer;
+        }
+
+        private double compareandcontrast(string current, string past)
+        {
+            if (DateTime.Parse(past) <= DateTime.Parse(current))
+
+            {
+                return (DateTime.Parse(current) - DateTime.Parse(past)).TotalHours;
+                
+            }
+            return -1;
+
         }
         [WebMethod]
         public DataTable getBuilding(string Username, string building)
@@ -152,6 +199,7 @@ namespace CottageWars
                     cmd = new SqlCommand(command, conn);
                     DA.SelectCommand = cmd;
                     DA.Fill(dt);
+                    conn.Close();
                     return dt;
 
                 case "Clay_Id":
@@ -159,6 +207,7 @@ namespace CottageWars
                     cmd = new SqlCommand(command, conn);
                     DA.SelectCommand = cmd;
                     DA.Fill(dt);
+                    conn.Close();
                     return dt;
 
                 case "Wood_Id":
@@ -166,6 +215,7 @@ namespace CottageWars
                     cmd = new SqlCommand(command, conn);
                     DA.SelectCommand = cmd;
                     DA.Fill(dt);
+                    conn.Close();
                     return dt;
 
                 case "Iron_Id":
@@ -173,6 +223,7 @@ namespace CottageWars
                     cmd = new SqlCommand(command, conn);
                     DA.SelectCommand = cmd;
                     DA.Fill(dt);
+                    conn.Close();
                     return dt;
 
                 case "Storage_Id":
@@ -180,14 +231,17 @@ namespace CottageWars
                     cmd = new SqlCommand(command, conn);
                     DA.SelectCommand = cmd;
                     DA.Fill(dt);
+                    conn.Close();
                     return dt;
                 case "Townhall_Id":
                     command = "Select * From Townhalls where id='" + count + "'";
                     cmd = new SqlCommand(command, conn);
                     DA.SelectCommand = cmd;
                     DA.Fill(dt);
+                    conn.Close();
                     return dt;
                 default:
+                    conn.Close();
                     return null;
 
             }
@@ -201,52 +255,66 @@ namespace CottageWars
             cmd = new SqlCommand(command, conn);
             Int32 count = (Int32)cmd.ExecuteScalar();
             command = "Select " + building + " from Buildings where id='" + count + "'";
-            count = (Int32)cmd.ExecuteScalar();
-            Int32 next = count + 1;
+           Int32 current = (Int32)cmd.ExecuteScalar();
+            Int16 next = (Int16)count++;
             switch (building)
             {
                 case "Barrack_Id":
                     command = "Select cost From Barracks where id='" + next + "'";
                     cmd = new SqlCommand(command, conn);
-                    next = (Int32)cmd.ExecuteScalar();
+                    next = (Int16)cmd.ExecuteScalar();
                     break;
 
                 case "Clay_Id":
                     command = "Select cost From Clays where id='" + next + "'";
                     cmd = new SqlCommand(command, conn);
-                    next = (Int32)cmd.ExecuteScalar();
+                    next = (Int16)cmd.ExecuteScalar();
                     break;
 
                 case "Wood_Id":
                     command = "Select cost From Woods where id='" + next + "'";
                     cmd = new SqlCommand(command, conn);
-                    next = (Int32)cmd.ExecuteScalar();
+                    next = (Int16)cmd.ExecuteScalar();
                     break;
 
                 case "Iron_Id":
                     command = "Select cost From Irons where id='" + next + "'";
                     cmd = new SqlCommand(command, conn);
-                    next = (Int32)cmd.ExecuteScalar();
+                    next = (Int16)cmd.ExecuteScalar();
                     break;
 
                 case "Storage_Id":
                     command = "Select cost From Storages where id='" + next + "'";
                     cmd = new SqlCommand(command, conn);
-                    next = (Int32)cmd.ExecuteScalar();
+                    next = (Int16)cmd.ExecuteScalar();
                     break;
                 case "Townhall_Id":
                     command = "Select cost From Townhalls where id='" + next + "'";
                     cmd = new SqlCommand(command, conn);
-                    next = (Int32)cmd.ExecuteScalar();
+                    next = (Int16)cmd.ExecuteScalar();
                     break;
                 default:
                     break; 
             }
+            conn.Close();
             var webResources = this.getResources(username);
+            conn.Open();
             Int16[] resources = webResources.ToArray();
             if (resources[0] >= next)
             {
-                command = "Update Buildings SET " + building + " = " + building +" 1 WHERE Building_Id = " + count;
+                command = "Update Buildings SET " + building + " = '" + (current + 1) +" ' WHERE Id = " + count;
+                cmd = new SqlCommand(command, conn);
+                cmd.ExecuteNonQuery();
+                resources[0] -= next;
+                command = "Update Buildings SET clayAmount = '" + (resources[0]) + " ' WHERE Id = " + count;
+                cmd = new SqlCommand(command, conn);
+                cmd.ExecuteNonQuery();
+                command = "Update Buildings SET woodAmount = '" + (resources[0]) + " ' WHERE Id = " + count;
+                cmd = new SqlCommand(command, conn);
+                cmd.ExecuteNonQuery();
+                command = "Update Buildings SET ironAmount = '" + (resources[0]) + " ' WHERE Id = " + count;
+                cmd = new SqlCommand(command, conn);
+                cmd.ExecuteNonQuery();
                 conn.Close();
                 return true;
             }
