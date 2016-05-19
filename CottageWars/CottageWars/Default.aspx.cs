@@ -14,6 +14,12 @@ namespace CottageWars
         private DatabaseServiceReference.DatabaseManagerServiceSoapClient webService;
         private string username;
 
+        /*
+         * When the page loads,and if the user is logged in, we make sure that first of all the building panel, where all the information is represented
+         * is not visible. This will change with the correct information for each building when a certain button is pressed.
+         * We also make a reference for the webservice and store the user's name to mention it to the service
+         */
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (HttpContext.Current.User.Identity.IsAuthenticated)
@@ -24,9 +30,12 @@ namespace CottageWars
                 username = HttpContext.Current.User.Identity.Name;
             }
         }
+
         /*
-         * 
-         * 
+         * When this button is clicked, the first thing we are doing is to call the webservice sending the name of the user and the name of the building
+         * We get the values as DataTable, then we extract the values for each column and set it using the set methods that are explained below.
+         * Also, we make sure that only this building's fields are visible and the other's are not
+         * This explanation applies to all the OnClick methods for the Info + NameOfBuilding.
          */
 
         protected void InfoWood_OnClick(object Source, EventArgs e)
@@ -55,19 +64,12 @@ namespace CottageWars
             setButtonVisibility("upgrageBarracksBtn", false);
             setButtonVisibility("upgradeStorageBtn", false);
 
-            /*foreach (System.Data.DataRow row in info.Rows)
-            {
-                string level = row["level"].ToString();
-                displayPopUpMessage(level);
-            }*/
-
 
             buildingControl.Visible = true;
         }
+
         /*
-         * 
-         * 
-         * 
+         * As explained in the InfoWood_OnClick
          */
 
         protected void InfoTownhall_OnClick(object Source, EventArgs e)
@@ -99,9 +101,9 @@ namespace CottageWars
 
             buildingControl.Visible = true;
         }
+
         /*
-         * 
-         * 
+         * As explained in the InfoWood_OnClick
          */
         protected void InfoBarracks_OnClick(object Source, EventArgs e)
         {
@@ -130,9 +132,9 @@ namespace CottageWars
             setButtonVisibility("upgradeStorageBtn", false);
             buildingControl.Visible = true;
         }
+
         /*
-         * 
-         * 
+         * As explained in the InfoWood_OnClick
          */
         protected void InfoIron_OnClick(object Source, EventArgs e)
         {
@@ -160,10 +162,9 @@ namespace CottageWars
             setButtonVisibility("upgradeStorageBtn", false);
             buildingControl.Visible = true;
         }
+
         /*
-         * 
-         * 
-         * 
+         * As explained in the InfoWood_OnClick
          */
 
         protected void InfoClay_OnClick(object Source, EventArgs e)
@@ -192,10 +193,9 @@ namespace CottageWars
             setButtonVisibility("upgradeStorageBtn", false);
             buildingControl.Visible = true;
         }
+
         /*
-         * 
-         * 
-         * 
+         * As explained in the InfoWood_OnClick
          */
 
         protected void InfoStorage_OnClick(object Source, EventArgs e)
@@ -227,18 +227,14 @@ namespace CottageWars
             buildingControl.Visible = true;
         }
         /*
-         * 
-         * 
-         * 
+         * To be implemented
          */
         protected void TrainInfantry_OnClick(object Source, EventArgs e)
         {
             displayPopUpMessage("Infantry");
         }
         /*
-         * 
-         * 
-         * 
+         * To be implemented
          */
 
         protected void TrainGladitoare_OnClick(object Source, EventArgs e)
@@ -247,19 +243,16 @@ namespace CottageWars
         }
 
         /*
-         * 
-         * 
-         * 
-         */
+          * To be implemented
+          */
 
         protected void TrainBrute_OnClick(object Source, EventArgs e)
         {
             displayPopUpMessage("Brute");
         }
+
         /*
-         * 
-         * 
-         * 
+         * Upgrading the wood's level
          */
 
         protected void UpgradeWood_OnClick(object Source, EventArgs e)
@@ -267,35 +260,48 @@ namespace CottageWars
             webService.updateBuilding(username, "Wood_Id");
         }
 
+        /*
+         * Upgrading the iron's level
+         */
         protected void UpgradeIron_OnClick(object Source, EventArgs e)
         {
             webService.updateBuilding(username, "Iron_Id");
         }
 
+        /*
+         * Upgrading the clay's level
+         */
         protected void UpgradeClay_OnClick(object Source, EventArgs e)
         {
             webService.updateBuilding(username, "Clay_Id");
         }
 
+        /*
+         * Upgrading the townhall's level
+         */
         protected void UpgradeTownhall_OnClick(object Source, EventArgs e)
         {
             webService.updateBuilding(username, "Townhall_Id");
         }
 
+        /*
+         * Upgrading the barrack's level
+         */
         protected void UpgradeBarracks_OnClick(object Source, EventArgs e)
         {
             webService.updateBuilding(username, "Barrack_Id");
         }
 
+        /*
+         * Upgrading the storage's level
+         */
         protected void UpgradeStorage_OnClick(object Source, EventArgs e)
         {
             webService.updateBuilding(username, "Storage_Id");
         }
+
         /*
-         * 
-         * 
-         * 
-         * 
+         * A method that is just building a javascript method to display the inputed message as an alert
          */
 
         public void displayPopUpMessage(string message)
@@ -311,8 +317,8 @@ namespace CottageWars
         }
 
         /*
-         * 
-         * 
+         * string title - the title of each building
+         * Since there is only one panel title, we just change the name everytime we want to see more information for a certain building
          * 
          * 
          */
@@ -323,9 +329,9 @@ namespace CottageWars
             panelInfo.InnerHtml = title;
         }
         /*
-         * 
-         * 
-         * 
+         * string compName - get's the component we want to change value
+         * string value - the value we want to assign to the component
+         * Has been used to set the values for each building. We are getting the information from the webservice and setting them using this method
          * 
          */
 
@@ -335,10 +341,11 @@ namespace CottageWars
             htmlEl.InnerHtml = value;
         }
         /*
-         * 
-         * 
-         * 
-         * 
+         * string compName - get's the component we want to change visibility's name
+         * bool state - true means we want to make it visible, false means we want to make it unvisible
+         * This method has been used to show the information for each building while hiding the information for the other buildings
+         * Since the field for a Townhall are different from the fields for the Barracks, we had to make a method that was making certain stuff
+         * visible or invisible, to display it nicely and for the change to be done easier
          */
 
         public void setComponentVisibility(string compName, bool state)
@@ -346,6 +353,12 @@ namespace CottageWars
             HtmlGenericControl htmlEl = (HtmlGenericControl)LoggedInContext.FindControl(compName) as HtmlGenericControl;
             htmlEl.Visible = state;
         }
+
+        /*
+         * string compName - get's the component we want to change visibility name
+         * bool state - true means we want to make it visible, false means we want to make it unvisible
+         * This method is mostly use when we press a button to get wood information, we only want to show the "Upgade wood" button
+         */
 
         public void setButtonVisibility(string compName, bool state)
         {

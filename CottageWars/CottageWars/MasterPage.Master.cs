@@ -12,30 +12,26 @@ namespace CottageWars
 {
     public partial class MasterPage : System.Web.UI.MasterPage
     {
-        private string connectionString;
-        private SqlConnection conn;
-        private SqlCommand cmd;
         private string user;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (HttpContext.Current.User.Identity.IsAuthenticated)
-            {
-                connectionString = @"Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=CottageWarsDB;Integrated Security=True";
-                conn = new SqlConnection(connectionString);
-                loadResources();
-            }
+           loadResources();
         }
         /*
-         * 
-         * 
-         * 
-         * 
+         * The first step of this method is to check if the user is logged in.
+         * After this, we get the user's name and we make a reference to the webservice
+         * We then call the GetResources method passing along the user's name
+         * Everything is then returned in a short array, but to make it more easier, we are first of all saving it as a var, and the using the ToArray
+         * method, we are making everything as a Int16 array
+         * From there one we just make a reference for each label, all 3 resources and troops
+         * We set the values from the webservices to the labels
+         * We then continue and call the getUnits method from the webservice by passing along the user's name and we repeat the above steps
+         * In the end we update the labels for the troops with the values from the service
          */
 
         private void loadResources()
         {
-            // string command = "SELECT COUNT(*) from Users where Username like '" + nameText.Text + "' AND Password like '" + passwordText.Text + "';";
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 user = HttpContext.Current.User.Identity.Name;

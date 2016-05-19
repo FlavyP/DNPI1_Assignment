@@ -12,21 +12,17 @@ namespace CottageWars
 {
     public partial class Register : System.Web.UI.Page
     {
-        private string connectionString;
-        private SqlConnection conn;
-        private SqlCommand cmd;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //connectionString = @"Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=CottageWarsDB;Integrated Security=True";
-            //conn = new SqlConnection(connectionString);
+            
         }
 
         /*
-         * 
-         * 
-         * 
-         * 
+         * OnClick button for the submit, when the user has already inputed the values
+         * A service variable is created that checks if a user with the inputed email address already exists in the database
+         * If the service returns true, it means there is a user with that email and we just pop-up a message saying this
+         * If there is no user with that e-mail address, we call the service to register it in the database and display a message
          * 
          */
 
@@ -43,14 +39,6 @@ namespace CottageWars
                 {
                     service.registerUser(nameText.Text, passwordText.Text, emailText.Text);
                     displayPopUpMessage("User Registered.");
-
-                    //displayPopUpMessage(count.ToString());
-
-
-                    //cmd = new SqlCommand(command, conn);
-                    //cmd.ExecuteNonQuery();
-                    //write in db
-
                 }
                 
             }
@@ -61,8 +49,7 @@ namespace CottageWars
         }
 
         /*
-         * 
-         * 
+         * A method that is just building a javascript method to display the inputed message as an alert
          */
 
         public void displayPopUpMessage(string message)
