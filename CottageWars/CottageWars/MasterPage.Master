@@ -44,13 +44,13 @@
                         <LoggedInTemplate>
                             <ul class="nav navbar-nav">
                                 <li><a runat="server" href="~/Default.aspx">Overview</a></li>
-                                <li><a runat="server" href="~/WorldMap.aspx">Worldmap</a></li>
+                                <li><a runat="server" href="~/  ">Worldmap</a></li>
                                 <li><a runat="server" href="~/">Attacks</a></li>
                                 <li><a runat="server" href="~/">Research</a></li>
                                 <li><a runat="server" href="~/">Leaderboards</a></li>
                                 <li><a runat="server" href="~/">Inbox</a></li>
-                                <li><a runat="server" href="~/">Options</a></li>
-                                <li><a runat="server" href="~/#">About</a></li>
+                                <li><a runat="server" href="~/p2w.aspx">Pay to win!</a></li>
+                               <li><a runat="server" href="~/#">About</a></li>
                             </ul>
 
                             <ul class="nav navbar-nav navbar-right">
@@ -64,7 +64,7 @@
                     </asp:LoginView>
                 </div>
 
-                <!-- So this should be moved into the LoggedInTemplate once it's done.-->
+              
 
             </div>
 

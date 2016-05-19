@@ -26,6 +26,13 @@ namespace CottageWars
                 loadResources();
             }
         }
+        /*
+         * 
+         * 
+         * 
+         * 
+         */
+
         private void loadResources()
         {
             // string command = "SELECT COUNT(*) from Users where Username like '" + nameText.Text + "' AND Password like '" + passwordText.Text + "';";

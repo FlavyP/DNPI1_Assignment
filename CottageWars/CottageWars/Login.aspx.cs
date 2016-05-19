@@ -21,6 +21,13 @@ namespace CottageWars
             //connectionString = @"Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=CottageWarsDB;Integrated Security=True";
             //conn = new SqlConnection(connectionString);
         }
+        /*
+         * 
+         * 
+         * 
+         * 
+         * 
+         */
 
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -31,6 +38,13 @@ namespace CottageWars
                 FormsAuthentication.RedirectFromLoginPage(nameText.Text, false);
             }
         }
+        /*
+         * 
+         * 
+         * 
+         * 
+         * 
+         */
 
         public void displayPopUpMessage(string message)
         {
@@ -43,6 +57,13 @@ namespace CottageWars
             sb.Append("</script>");
             ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", sb.ToString());
         }
+        /*
+         * 
+         * 
+         * 
+         * 
+         */
+
         public int Authentification()
         {
             try

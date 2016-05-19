@@ -24,6 +24,10 @@ namespace CottageWars
                 username = HttpContext.Current.User.Identity.Name;
             }
         }
+        /*
+         * 
+         * 
+         */
 
         protected void InfoWood_OnClick(object Source, EventArgs e)
         {
@@ -60,6 +64,12 @@ namespace CottageWars
 
             buildingControl.Visible = true;
         }
+        /*
+         * 
+         * 
+         * 
+         */
+
         protected void InfoTownhall_OnClick(object Source, EventArgs e)
         {
             System.Data.DataTable info = new System.Data.DataTable();
@@ -89,6 +99,10 @@ namespace CottageWars
 
             buildingControl.Visible = true;
         }
+        /*
+         * 
+         * 
+         */
         protected void InfoBarracks_OnClick(object Source, EventArgs e)
         {
             System.Data.DataTable info = new System.Data.DataTable();
@@ -116,6 +130,10 @@ namespace CottageWars
             setButtonVisibility("upgradeStorageBtn", false);
             buildingControl.Visible = true;
         }
+        /*
+         * 
+         * 
+         */
         protected void InfoIron_OnClick(object Source, EventArgs e)
         {
             System.Data.DataTable info = new System.Data.DataTable();
@@ -142,6 +160,12 @@ namespace CottageWars
             setButtonVisibility("upgradeStorageBtn", false);
             buildingControl.Visible = true;
         }
+        /*
+         * 
+         * 
+         * 
+         */
+
         protected void InfoClay_OnClick(object Source, EventArgs e)
         {
             System.Data.DataTable info = new System.Data.DataTable();
@@ -168,6 +192,12 @@ namespace CottageWars
             setButtonVisibility("upgradeStorageBtn", false);
             buildingControl.Visible = true;
         }
+        /*
+         * 
+         * 
+         * 
+         */
+
         protected void InfoStorage_OnClick(object Source, EventArgs e)
         {
             System.Data.DataTable info = new System.Data.DataTable();
@@ -196,21 +226,41 @@ namespace CottageWars
             setButtonVisibility("upgradeStorageBtn", true);
             buildingControl.Visible = true;
         }
-
+        /*
+         * 
+         * 
+         * 
+         */
         protected void TrainInfantry_OnClick(object Source, EventArgs e)
         {
             displayPopUpMessage("Infantry");
         }
+        /*
+         * 
+         * 
+         * 
+         */
 
         protected void TrainGladitoare_OnClick(object Source, EventArgs e)
         {
             displayPopUpMessage("Gladiator");
         }
 
+        /*
+         * 
+         * 
+         * 
+         */
+
         protected void TrainBrute_OnClick(object Source, EventArgs e)
         {
             displayPopUpMessage("Brute");
         }
+        /*
+         * 
+         * 
+         * 
+         */
 
         protected void UpgradeWood_OnClick(object Source, EventArgs e)
         {
@@ -241,6 +291,12 @@ namespace CottageWars
         {
             webService.updateBuilding(username, "Storage_Id");
         }
+        /*
+         * 
+         * 
+         * 
+         * 
+         */
 
         public void displayPopUpMessage(string message)
         {
@@ -254,17 +310,36 @@ namespace CottageWars
             ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", sb.ToString());
         }
 
+        /*
+         * 
+         * 
+         * 
+         * 
+         */
+
         public void setPanelTitle(string title)
         {
             HtmlGenericControl panelInfo = (HtmlGenericControl)LoggedInContext.FindControl("panelTitle") as HtmlGenericControl;
             panelInfo.InnerHtml = title;
         }
+        /*
+         * 
+         * 
+         * 
+         * 
+         */
 
         public void setComponentValue(string compName, string value)
         {
             HtmlGenericControl htmlEl = (HtmlGenericControl)LoggedInContext.FindControl(compName) as HtmlGenericControl;
             htmlEl.InnerHtml = value;
         }
+        /*
+         * 
+         * 
+         * 
+         * 
+         */
 
         public void setComponentVisibility(string compName, bool state)
         {

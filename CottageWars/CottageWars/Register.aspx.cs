@@ -22,6 +22,14 @@ namespace CottageWars
             //conn = new SqlConnection(connectionString);
         }
 
+        /*
+         * 
+         * 
+         * 
+         * 
+         * 
+         */
+
         protected void submitButton_Click1(object sender, EventArgs e)
         {
             try
@@ -51,6 +59,12 @@ namespace CottageWars
                 throw;
             }
         }
+
+        /*
+         * 
+         * 
+         */
+
         public void displayPopUpMessage(string message)
         {
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
