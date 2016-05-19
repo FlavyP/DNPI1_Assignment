@@ -14,15 +14,9 @@ namespace CottageWars
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //connectionString = @"Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=CottageWarsDB;Integrated Security=True";
-            //conn = new SqlConnection(connectionString);
         }
         /*
-         * 
          * Using the webservices it checks if a user with this username and password exists in the database.If yes it redirects to the main page with a user status Logged in and user information loaded
-         * 
-         * 
-         * 
          */
 
         protected void Button1_Click(object sender, EventArgs e)

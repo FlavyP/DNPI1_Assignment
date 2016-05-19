@@ -35,8 +35,10 @@ namespace CottageWars
             conn = new SqlConnection(connectionString);
         }
         /*
-         *   
-         * 
+         *   Has the userEmail as a parameter
+         *  Searches to see if there is an existing user with that e-mail address
+         * We are using the SELECT COUNT for this one. If the count is bigger than 0, means there is already a user with this email and we return true
+         * Otherwise, there is no user with this email and we return false
          */
 
         [WebMethod]
@@ -54,8 +56,9 @@ namespace CottageWars
             return false;
         }
         /*
-         *   
-         * 
+         * Parameters are username and password
+         * This method is used for the Log In screen and it cheks if there is a user in database that has that username and that password
+         * If there is a user, we return true, if not we return false
          */
         [WebMethod]
         public bool checkForUserUP(string username, string password)
@@ -77,8 +80,15 @@ namespace CottageWars
 
 
         /*
-         *   
-         * 
+         * It takes as parameters the main User information: username, password, email
+         * Since each user has a town to begin with, we all need to reference buildings, units and resources to it
+         * So, the first step is to get the current amout of users and increment this by one, this way we have the ID that will be assigned to the newly registered user
+         * The, we start building the SQL for the Units, Buildings, and putting everything together
+         * The buildUnits SQL is just settings all the troops to 0
+         * The buildBuildings SQL is giving the user 100 resources of each to start with and all buildings at level 1
+         * The command SQL is the one that registers the user with the username, email, password, last Visited time - that will be user to update the resources (check the explanation for this method), 
+         * then we get the Building_id that is the same as the user id, and same for the Units_id\
+         * We return true is everything was succesfull, as false if not
          */
 
         [WebMethod]
@@ -211,8 +221,7 @@ namespace CottageWars
         }
 
         /*
-         *Compares two dates and returns the diffrance in hours if it's more than one or it returns -1 if it's less.   
-         * 
+         *Compares two dates and returns the diffrance in hours if it's more than one or it returns -1 if it's less.
          */
 
         private double compareandcontrast(string current, string past)
@@ -226,6 +235,7 @@ namespace CottageWars
             return -1;
 
         }
+        
         /*First the method finds the Building id corresponding to the user to access the right Buildings row.
          * Then it finds the current level of the building in Buildings table.
          * Then it goes into the correct type of building table (Barracks, Towns and etc.) and it checks for the information for the current level.
@@ -309,20 +319,26 @@ namespace CottageWars
         }
 
         /*
-         *   
-         * 
+         *   This method is used to upgrade a building's level
          */
 
         [WebMethod]
         public bool updateBuilding(string username, string building)
         {
             conn.Open();
+
+            //This SQL is written to get a user's building ID, which is the same as the user's ID
             String command = "Select Building_Id FROM Users where Username ='" + username + "'";
             cmd = new SqlCommand(command, conn);
             Int32 count = (Int32)cmd.ExecuteScalar();
+
+            //This SQL is returning the current level of the building
             command = "Select " + building + " from Buildings where id='" + count + "'";
+            cmd = new SqlCommand(command, conn);
            Int32 current = (Int32)cmd.ExecuteScalar();
             Int16 next = (Int16)count;
+
+            //The switch is retuning the cost for the next level of each building
             switch (building)
             {
                 case "Barrack_Id":
@@ -363,14 +379,21 @@ namespace CottageWars
                     break; 
             }
             conn.Close();
+
+            //We are getting our current resources to make sure we have enought to upgrade
             var webResources = this.getResources(username);
             conn.Open();
             Int16[] resources = webResources.ToArray();
+
+            //If we have more resources than the cost for the next level, we can upgrade
             if (resources[0] >= next)
             {
+                //We are incrementing the buildings level
                 command = "Update Buildings SET " + building + " = '" + (current + 1) +" ' WHERE Id = " + count;
                 cmd = new SqlCommand(command, conn);
                 cmd.ExecuteNonQuery();
+
+                //Now we are updating the resources amount by taking out the cost of the building we just updated
                 resources[0] -= next;
                 command = "Update Buildings SET clayAmount = '" + (resources[0]) + " ' WHERE Id = " + count;
                 cmd = new SqlCommand(command, conn);
