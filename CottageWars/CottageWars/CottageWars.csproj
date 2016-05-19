@@ -132,6 +132,7 @@
     </Content>
     <Content Include="DatabaseManagerService.asmx" />
     <Content Include="Login.aspx" />
+    <Content Include="p2w.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -260,6 +261,13 @@
     </Compile>
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="p2w.aspx.cs">
+      <DependentUpon>p2w.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="p2w.aspx.designer.cs">
+      <DependentUpon>p2w.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

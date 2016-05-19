@@ -18,6 +18,13 @@ namespace CottageWars
     // [System.Web.Script.Services.ScriptService]
     public class DatabaseManagerService : System.Web.Services.WebService
     {
+        /*
+         * string connectionString - neccesarry for making the connection with the database;
+         * SqlConnection conn - the connection, using it to run queries, open/close connection after each query.
+         * SqlCommand cmd - The command formulated by the connection and a String statement.
+         * 
+         */
+
         private string connectionString;
         private SqlConnection conn;
         private SqlCommand cmd;
@@ -27,6 +34,11 @@ namespace CottageWars
             connectionString = @"Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=CottageWarsDB;Integrated Security=True";
             conn = new SqlConnection(connectionString);
         }
+        /*
+         *   
+         * 
+         */
+
         [WebMethod]
         public bool checkForUserE(string userEmail)
         {
@@ -41,6 +53,10 @@ namespace CottageWars
             conn.Close();
             return false;
         }
+        /*
+         *   
+         * 
+         */
         [WebMethod]
         public bool checkForUserUP(string username, string password)
         {
@@ -56,8 +72,15 @@ namespace CottageWars
 
             conn.Close();
             return false;
-            
-        }
+
+        }   
+
+
+        /*
+         *   
+         * 
+         */
+
         [WebMethod]
         public bool registerUser(string username, string password, string email)
         {
@@ -92,7 +115,10 @@ namespace CottageWars
 
             }
         }
-
+        /*
+         *   
+         * 
+         */
         [WebMethod]
         public Int16[] getUnits(string Username)
         {
@@ -113,6 +139,12 @@ namespace CottageWars
             conn.Close();
             return buffer;
         }
+
+        /*
+         *   
+         * 
+         */
+
         [WebMethod]
         public Int16[] getResources(string Username)
         {
@@ -169,6 +201,11 @@ namespace CottageWars
             return buffer;
         }
 
+        /*
+         *   
+         * 
+         */
+
         private double compareandcontrast(string current, string past)
         {
             if (DateTime.Parse(past) <= DateTime.Parse(current))
@@ -180,6 +217,11 @@ namespace CottageWars
             return -1;
 
         }
+        /*
+         *   
+         * 
+         */
+
         [WebMethod]
         public DataTable getBuilding(string Username, string building)
         {
@@ -247,6 +289,12 @@ namespace CottageWars
             }
 
         }
+
+        /*
+         *   
+         * 
+         */
+
         [WebMethod]
         public bool updateBuilding(string username, string building)
         {
@@ -322,6 +370,12 @@ namespace CottageWars
             conn.Close();
             return false;
         }
+
+        /*
+         *   
+         * 
+         */
+
         [WebMethod]
         public bool buildUnits(string username, int gladiator, int brute, int infatry)
         {
