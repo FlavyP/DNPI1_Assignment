@@ -116,7 +116,9 @@ namespace CottageWars
             }
         }
         /*
-         *   
+         *It gets the Unit Id corresponding to the Username
+         *It goes into table units and it adds the units to a buffer[] arryay.
+         * It returns the buffer array.
          * 
          */
         [WebMethod]
@@ -141,8 +143,16 @@ namespace CottageWars
         }
 
         /*
-         *   
-         * 
+         * First the method checks for the building_id with the correspoinding user, so it can access the correct row in Buildings table.
+         * Then the method checks for last visited date in the Users table with the correct username
+         * Then the method gets the current date.
+         * It calculates the differeance between both dates in HOURS using compareandcontrats() method, see below. 
+         * If the differance is more than one hour it gets the values for PPH from Clays table, PPH- Produce per hour.(Currently taking only from Clays because the production and cost is equal for all 3 resources).
+         * It calculates the differance multiplied by production per hour.
+         * Then it updates the last visited date and hour for the current one.
+         * Then it gets the resources and stores them in a buffer[] array.
+         * It adds the differance to the buffer[] and it Updates the resource table with the updated resources.
+         * It returns the buffer[] array in the end.
          */
 
         [WebMethod]
@@ -162,7 +172,6 @@ namespace CottageWars
             if (differance != -1)
                 
             {
-                Console.Write(last + " " + current);
                 command = "Select Clay_Id from Buildings where Id='" + count + "'";
                 cmd = new SqlCommand(command, conn);
                 int level = (int)cmd.ExecuteScalar();
@@ -202,7 +211,7 @@ namespace CottageWars
         }
 
         /*
-         *   
+         *Compares two dates and returns the diffrance in hours if it's more than one or it returns -1 if it's less.   
          * 
          */
 
@@ -217,7 +226,11 @@ namespace CottageWars
             return -1;
 
         }
-        /*
+        /*First the method finds the Building id corresponding to the user to access the right Buildings row.
+         * Then it finds the current level of the building in Buildings table.
+         * Then it goes into the correct type of building table (Barracks, Towns and etc.) and it checks for the information for the current level.
+         * it adds the information into a DataTable.
+         * It returns the data table.
          *   
          * 
          */
@@ -378,7 +391,7 @@ namespace CottageWars
 
         /*
          *   
-         * 
+         * To be implemented.
          */
 
         [WebMethod]
